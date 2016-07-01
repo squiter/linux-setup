@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Spotify
+GenericName=Music Player
+Comment=Let\'s listen some music!
+Exec=/usr/bin/spotify
+Icon=/usr/share/icons/hicolor/512x512/apps/spotify-ugly.png
+Type=Application
+Terminal=false
+Categories=Multimedia,Music

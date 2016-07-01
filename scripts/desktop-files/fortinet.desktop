@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Fortinet VPN
+GenericName=VPN Gateway
+Comment=Used to access locaweb VPN
+Exec=/usr/local/bin/forticlientsslvpn
+Icon=/usr/share/icons/hicolor/512x512/apps/vpn.png
+Type=Application
+Terminal=false
+Categories=network,security

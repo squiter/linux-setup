@@ -1,0 +1,123 @@
+#!/bin/bash
+# Usage: update_gems
+#
+set -euo pipefail
+
+__green_echo() {
+    local green="$(tput setaf 2)"
+    local reset="$(tput sgr0)"
+    local message=$1 # First argument
+    local function_callee=${FUNCNAME[ 1 ]}
+
+    echo -e `# Enable interpretation of backslash scapes` \
+	 "${green} ==> " \
+	 "[FUNCTION: $function_callee] " \
+	 "$message ${reset}"
+}
+
+__yellow_echo() {
+    local yellow="$(tput setaf 3)"
+    local reset="$(tput sgr0)"
+    local message=$1 # First argument
+    local function_callee=${FUNCNAME[ 1 ]}
+
+    echo -e `# Enable interpretation of backslash scapes` \
+	 "${yellow} ==> " \
+	 "[FUNCTION: $function_callee] " \
+	 "$message ${reset}"
+}
+
+__red_echo() {
+    local red="$(tput setaf 1)"
+    local reset="$(tput sgr0)"
+    local message=$1 # First argument
+    local function_callee=${FUNCNAME[ 1 ]}
+
+    echo -e `# Enable interpretation of backslash scapes` \
+	 "${red} ==> " \
+	 "[FUNCTION: $function_callee] " \
+	 "$message ${reset}" \
+	 >&2 # Send to STDERR
+}
+
+
+function __update_gem(){
+    local outdated_gem=$1
+
+    __update_dependency__() {
+	__yellow_echo "💎  Updating $outdated_gem dependency..."
+	bundle update "$outdated_gem" --quiet
+
+	file_updated=$(git status | grep modified | grep Gemfile.lock && true || false)
+
+	if [[ "$file_updated" = true ]]; then
+	    local status=0
+
+	    if [[ -f bin/rspec ]]; then
+		result=$(bin/rspec | tee /dev/tty) || status=1
+	    elif [[ -f spec ]]; then
+		result=$(bundle exec rspec spec | tee /dev/tty) || status=1
+	    elif [[ -f bin/rake ]]; then
+		result=$(bin/rake test | tee /dev/tty) || status=1
+	    fi
+
+	    if [ "$status" -eq 0 ]; then
+		__commit__ "$outdated_gem"
+	    else
+		__fail__ "$outdated_gem"
+	    fi
+	else
+	    __yellow_echo "This gem $outdated_gem probably was already updated"
+	fi
+    }
+
+    __fail__() {
+	__red_echo "💣  The test suite fails after 'bundle update $outdated_gem'"
+	git checkout Gemfile.lock
+	rm -rf bundler.txt
+    }
+
+    __commit__() {
+	__green_echo "Generating commit with the message - Update $outdated_gem dependency."
+	git add Gemfile.lock
+	git commit -m "Update \`$outdated_gem\` dependency." --quiet || __green_echo "This gem $outdated_gem probably was already updated."
+    }
+
+    for gem in "$@"; do
+	__update_dependency__ "$gem"
+    done
+}
+
+__bundle_outdated(){
+    if [[ -e "bundler.txt" ]]; then
+	__yellow_echo "Using the saved file bundler.txt"
+	cat bundler.txt
+    else
+	bundle outdated --strict `# Will consider your Gemfile` | tee bundler.txt || true
+    fi
+}
+
+__main_update_all() {
+    __green_echo "It's gonna be LEGEN... Wait for it..."
+
+    __bundle_outdated
+
+    gems=(
+	$(grep newest bundler.txt | awk '{ print $2 }')
+    )
+
+    for gem in "${gems[@]}"; do
+	__yellow_echo "Updating $gem"
+
+	__update_gem "$gem"
+
+	__green_echo "Finished update $gem"
+    done
+
+    # Remove unused file
+    rm -rf bundler.txt
+
+    __green_echo "... DARY! Legendary!"
+}
+
+__main_update_all

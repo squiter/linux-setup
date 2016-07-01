@@ -1,0 +1,14 @@
+#!/bin/bash
+
+__pgt_kill() {
+    pids=(
+	$(ps aux | peco |  awk '{print $2}')
+    )
+
+    for pid in "${pids[@]}"; do
+	echo -e "$(tput setaf 1)Killing process [$pid => $(ps -p $pid -o comm=)] 🔫 $(tput sgr0)"
+	sudo kill -9 $pid
+    done
+}
+
+__pgt_kill
