@@ -1,0 +1,7 @@
+#!/bin/bash
+
+git clone https://github.com/rbenv/rbenv-default-gems.git $(rbenv root)/plugins/rbenv-default-gems
+
+echo "bundler" >> $(rbenv root)/default-gems
+echo "rcodetools" >> $(rbenv root)/default-gems
+echo "fastri" >> $(rbenv root)/default-gems
