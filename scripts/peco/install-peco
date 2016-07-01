@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+version=0.3.6
+bin_dir=$HOME/bin
+
+# Get current version from repo
+wget https://github.com/peco/peco/releases/download/v$version/peco_linux_amd64.tar.gz
+
+# Untar content
+tar -xsvf peco_linux_amd64.tar.gz
+
+# Move binary to my binary directory
+cp peco_linux_amd64/peco $bin_dir
+
+# Move configuration to right place
+mkdir $HOME/.peco
+cp peco-config.json $HOME/.peco/config.json
+
+# Make it executable
+chmod +x $bin_dir/peco
+
+# Clean
+rm -rf peco_linux_amd64*
