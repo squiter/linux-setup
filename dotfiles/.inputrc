@@ -1,0 +1,33 @@
+set editing mode-set emacs
+# set bell-style visible
+set completion-ignore-case on
+set history-size -1
+set keyseq-timeout 1000
+set colored-status on
+
+# Reload the .inputrc file
+"\C-x\C-r":re-read-init-file
+
+# Show all available binds
+"\C-xh":"bind -p|peco\C-j"
+
+# Add sudo to current command
+"\C-hs":"\C-asudo \C-e"
+
+# Project find file
+"\C-x\C-f":"$(find . | peco)\C-j"
+
+# Go to project
+"\C-xo":"cd $(all_projects | peco)\C-j"
+
+# Kill process
+"\C-xk":"pgt-kill\C-j"
+
+# Run all tests from project
+"\C-x,a":"be rspec spec\C-j"
+
+# HH
+"\C-r": "\C-a hh \C-j"
+
+# Like helm show commands
+"\ex":"$(compgen -ac | peco)\C-j"
