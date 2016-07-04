@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Use this script in the same way you'd run redis natively.
+
+# Set REDIS_IMAGE to use a custom image.
+: ${REDIS_IMAGE:=squiter/redis2.6}
+: ${REDIS_PORT:=6379}
+
+docker run -d -p "$REDIS_PORT":"$REDIS_PORT" "$REDIS_IMAGE"
