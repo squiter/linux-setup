@@ -1,0 +1,30 @@
+#!/bin/bash
+
+#########################
+# Custom configurations #
+#########################
+
+# Bash history handling with multiple terminals
+# This item must come before .ps1
+export PROMPT_COMMAND='history -a'
+
+# PS1 configuration
+if [ -f "$HOME/.ps1" ] ; then
+    source "$HOME/.ps1"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+export CDPATH=".:~/:~/Downloads:~/projetos:~/projetos/locaweb"
+
+# Ignore case
+shopt -s cdspell
+bind 'set completion-ignore-case on'
+
+# Rbenv config
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
