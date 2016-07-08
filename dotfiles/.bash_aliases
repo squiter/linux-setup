@@ -2,8 +2,8 @@
 alias cdlast='cd $( ls -lt | grep d | head -1 |  cut -b 49- )'
 
 # Locaweb Alias
-alias nibbler='ssh -i ~/.ssh/id_rsa_gateway _bsantos@nibbler0001.linux.locaweb.com.br'
-alias nibbler-ftp='sftp -i ~/.ssh/id_rsa_gateway _bsantos@nibbler0001.linux.locaweb.com.br'
+alias nibbler='lpass show --password -c nibbler && ssh -i ~/.ssh/id_rsa_gateway _bsantos@nibbler0001.linux.locaweb.com.br'
+alias nibbler-ftp='lpass show --password -c nibbler && sftp -i ~/.ssh/id_rsa_gateway _bsantos@nibbler0001.linux.locaweb.com.br'
 
 # GIT
 alias gsupdate="git submodule foreach git pull origin master"
