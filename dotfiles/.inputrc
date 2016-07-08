@@ -20,6 +20,9 @@ set colored-status on
 # Go to project
 "\C-xo":"cd $(all_projects | peco)\C-j"
 
+# Copy lpass password
+"\C-xp":"lpass show --password -c $(lpass-get-id)\C-j"
+
 # Kill process
 "\C-xk":"pgt-kill\C-j"
 

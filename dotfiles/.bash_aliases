@@ -30,3 +30,5 @@ alias hodor-up="bundle exec rails s -p 3002"
 alias all_projects="ls  ~/projetos/ ~/projetos/locaweb/ | grep -v /"
 
 alias calendar-indicator="/opt/extras.ubuntu.com/calendar-indicator/bin/calendar-indicator &"
+
+alias lpass-get-id="lpass ls | peco | sed -e 's/.*\[id\:\ \(.*\)\]/\1/'"
