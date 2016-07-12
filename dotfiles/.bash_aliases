@@ -21,7 +21,7 @@ alias brake="bin/rake"
 alias brails="bin/rails"
 
 # Fuck!
-alias fuck="sudo $(history -p \!\!)"
+alias fuck='sudo $(history -p \!\!)'
 alias fuck_product="RAILS_ENV=test rake db:drop db:create db:migrate db:seed"
 
 alias recipes-up="bundle exec rails s -p 3001 | grep -v metriks | grep -v COUNT"
