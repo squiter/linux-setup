@@ -1,0 +1,6 @@
+#!/bin/sh
+a=`pwd`
+for event in `git diff $1 master --stat --name-only` ; do
+echo "${a}/${event} --> $2"
+rsync -R "${event}" "$2"
+done
