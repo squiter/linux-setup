@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Switch branches easily
+#
+__pgt-switch-branch() {
+    __master
+    __local_branches
+    __remote_branches
+
+    branch=$(cat /tmp/bash_remote_co | peco | cut -d' ' -f2)
+
+    rm -rf /tmp/bash_remote_co
+
+    git checkout $branch
+}
+
+__add_prefix_local() {
+    nl -s '[LOCAL] ' | cut -c7-
+}
+
+__add_prefix_remote() {
+    nl -s '[REMOTE] ' | cut -c7-
+}
+
+__master(){
+    echo master > /tmp/bash_remote_co
+}
+
+__local_branches(){
+    git branch | awk '{print $1}' | grep -v '*' | __add_prefix_local >> /tmp/bash_remote_co
+}
+
+__remote_branches(){
+    git branch -r | sed 's/.*\///' | __add_prefix_remote >> /tmp/bash_remote_co
+}
+
+__pgt-switch-branch
