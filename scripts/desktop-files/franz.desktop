@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Franz
+GenericName=Instant Messaging
+Comment=Agregate Telegram, Whatsapp and more.
+Exec=/opt/franz/Franz
+Icon=/usr/share/icons/hicolor/512x512/apps/franz.png
+Type=Application
+Terminal=false
+Categories=messages,webapp

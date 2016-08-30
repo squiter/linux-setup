@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -euo pipefail
+
+if [ $# -eq 0 ]
+then
+    version=4.0.1
+else
+    version=$1
+fi
+
+package=Franz-linux-x64-$version.tgz
+url=https://github.com/meetfranz/franz-app/releases/download/$version/$package
+
+echo "Installing Franz version: $version"
+echo "From: $url"
+
+mkdir tempfranz
+cd tempfranz
+wget $url
+tar -xvzf $package
+rm $package
+cp ../icons/franz.png franz.png
+sudo rm -rf /opt/franz/*
+sudo cp -r ./* /opt/franz/
+cd ..
+echo "Cleaning..."
+rm -rf tempfranz
+echo "Installation finished"
