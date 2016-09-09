@@ -1,0 +1,8 @@
+#!/bin/sh
+
+TIME="$1"
+MSG="$2"
+ICON="$3"
+
+notify-send -i "$ICON" "ORGMODE!" "Appointment in $TIME minutes:\n$MSG\n"
+espeak "Hey Skeeter! $MSG"
