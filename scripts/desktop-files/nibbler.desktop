@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=Nibbler
+GenericName=Gateway for Locaweb
+Exec=/usr/bin/terminator -e 'lpass show --password -c nibbler && ssh -i ~/.ssh/id_rsa_gateway _bsantos@nibbler0001.linux.locaweb.com.br;$SHELL'
+Icon=/usr/share/icons/hicolor/512x512/apps/nibbler.ico
+Type=Application
+Terminal=false
