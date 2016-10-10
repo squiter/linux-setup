@@ -33,3 +33,6 @@ bind 'set completion-ignore-case on'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+# ActiveTCL
+export PATH="$PATH:/opt/ActiveTcl-8.6/bin"
