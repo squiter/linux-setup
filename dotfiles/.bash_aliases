@@ -32,3 +32,5 @@ alias all_projects="ls  ~/projetos/ ~/projetos/locaweb/ | grep -v /"
 alias calendar-indicator="/opt/extras.ubuntu.com/calendar-indicator/bin/calendar-indicator &"
 
 alias lpass-get-id="lpass ls | peco | sed -e 's/.*\[id\:\ \(.*\)\]/\1/'"
+
+alias who-created-this-branch='git for-each-ref --format="%(committerdate) %09 %(authorname) %09 %(refname)" | sort -k5n -k2M -k3n -k4n | grep'
