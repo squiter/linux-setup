@@ -33,4 +33,7 @@ alias calendar-indicator="/opt/extras.ubuntu.com/calendar-indicator/bin/calendar
 
 alias lpass-get-id="lpass ls | peco | sed -e 's/.*\[id\:\ \(.*\)\]/\1/'"
 
-alias who-created-this-branch='git for-each-ref --format="%(committerdate) %09 %(authorname) %09 %(refname)" | sort -k5n -k2M -k3n -k4n | grep'alias who-created-this-branch='git for-each-ref --format="%(committerdate) %09 %(authorname) %09 %(refname)" | sort -k5n -k2M -k3n -k4n | grep'
+alias who-created-this-branch='git for-each-ref --format="%(committerdate) %09 %(authorname) %09 %(refname)" | sort -k5n -k2M -k3n -k4n | grep'
+
+# this alias created (every time) a new alias file to be used in emacs shell
+alias | sed -E "s/^alias ([^=]+)='(.*)'$/alias \1 \2 \$*/g; s/'\\\''/'/g;" >~/.emacs.d/eshell/alias
