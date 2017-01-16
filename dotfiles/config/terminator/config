@@ -1,0 +1,44 @@
+[global_config]
+  always_split_with_profile = True
+  enabled_plugins = APTURLHandler, LaunchpadCodeURLHandler, LaunchpadBugURLHandler
+  suppress_multiple_term_dialog = True
+[keybindings]
+  copy = <Alt>w
+  cycle_next = <Alt>o
+  cycle_prev = <Shift><Alt>o
+  new_tab = <Primary>t
+  paste = <Primary>y
+  split_horiz = <Primary><Alt>minus
+  split_vert = <Primary><Alt>backslash
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = squiter
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#ffffdd"
+    background_darkness = 0.65
+    background_image = None
+    font = Inconsolata Medium 15
+    foreground_color = "#000000"
+    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    scrollback_infinite = True
+    use_system_font = False
+  [[squiter]]
+    background_color = "#272822"
+    background_darkness = 0.98
+    background_image = None
+    background_type = transparent
+    cursor_color = "#f8f8f2"
+    font = Inconsolata Medium 14
+    foreground_color = "#f8f8f2"
+    palette = "#272822:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f8f8f2:#75715e:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f9f8f5"
+    scrollback_infinite = True
+    urgent_bell = True
+    use_system_font = False
