@@ -37,3 +37,7 @@ alias who-created-this-branch='git for-each-ref --format="%(committerdate) %09 %
 
 # this alias created (every time) a new alias file to be used in emacs shell
 alias | sed -E "s/^alias ([^=]+)='(.*)'$/alias \1 \2 \$*/g; s/'\\\''/'/g;" >~/.emacs.d/eshell/alias
+
+# pbcopy and pbpast using xclip
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
