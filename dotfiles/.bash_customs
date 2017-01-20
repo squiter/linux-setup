@@ -8,6 +8,9 @@
 # This item must come before .ps1
 export PROMPT_COMMAND='history -a'
 
+# This is like a `.uniq` on the hystory!
+export HISTCONTROL=ignoreboth:erasedups
+
 # PS1 configuration
 if [ -f "$HOME/.ps1" ] ; then
     source "$HOME/.ps1"
