@@ -41,3 +41,5 @@ alias | sed -E "s/^alias ([^=]+)='(.*)'$/alias \1 \2 \$*/g; s/'\\\''/'/g;" >~/.e
 # pbcopy and pbpast using xclip
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+
+alias full-upgrade="sudo apt-get update && sudo apt-get -u upgrade && sudo apt autoremove"
