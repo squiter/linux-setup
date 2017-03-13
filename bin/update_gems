@@ -48,26 +48,20 @@ function __update_gem(){
 	__yellow_echo "💎  Updating $outdated_gem dependency..."
 	bundle update "$outdated_gem" --quiet
 
-	file_updated=$(git status | grep modified | grep Gemfile.lock && true || false)
+	local status=0
 
-	if [[ "$file_updated" = true ]]; then
-	    local status=0
+	if [[ -f bin/rspec ]]; then
+	    result=$(bin/rspec | tee /dev/tty) || status=1
+	elif [[ -f spec ]]; then
+	    result=$(bundle exec rspec spec | tee /dev/tty) || status=1
+	elif [[ -f bin/rake ]]; then
+	    result=$(bin/rake test | tee /dev/tty) || status=1
+	fi
 
-	    if [[ -f bin/rspec ]]; then
-		result=$(bin/rspec | tee /dev/tty) || status=1
-	    elif [[ -f spec ]]; then
-		result=$(bundle exec rspec spec | tee /dev/tty) || status=1
-	    elif [[ -f bin/rake ]]; then
-		result=$(bin/rake test | tee /dev/tty) || status=1
-	    fi
-
-	    if [ "$status" -eq 0 ]; then
-		__commit__ "$outdated_gem"
-	    else
-		__fail__ "$outdated_gem"
-	    fi
+	if [ "$status" -eq 0 ]; then
+	    __commit__ "$outdated_gem"
 	else
-	    __yellow_echo "This gem $outdated_gem probably was already updated"
+	    __fail__ "$outdated_gem"
 	fi
     }
 
