@@ -42,3 +42,6 @@ export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 # ActiveTCL
 export PATH="$PATH:/opt/ActiveTcl-8.6/bin"
+
+# NPM
+export PATH=~/.npm-global/bin:$PATH
