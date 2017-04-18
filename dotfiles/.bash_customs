@@ -45,3 +45,6 @@ export PATH="$PATH:/opt/ActiveTcl-8.6/bin"
 
 # NPM
 export PATH=~/.npm-global/bin:$PATH
+
+# Terminator tab/title naming
+set_title() { printf "\e]2;$*\a"; }
