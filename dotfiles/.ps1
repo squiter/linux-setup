@@ -21,12 +21,13 @@ EDIR="📂"
 ECHK="✔️"
 EERR="💢"
 ESHU="🔀"
+ELMB="λ"
 
 export PROMPT_COMMAND=__prompt_command  # Func to gen PS1 after CMDs
 
 function __prompt_command() {
     local EXIT="$?"             # This needs to be first
-    PS1="$BOLD"
+    PS1="\n$BOLD"
 
     if [ $EXIT != 0 ]; then
         PS1+="$FRED$EERR "
@@ -34,5 +35,5 @@ function __prompt_command() {
         PS1+="$FGRN$ECHK "
     fi
 
-    PS1+="$FMAG\u$FCYN $ESHU \h: $FGRN$EDIR \w\$$RS$NORM "
+    PS1+="$FMAG\u$FCYN $ELMB \h: $FGRN$EDIR \w\$$RS$NORM "
 }
