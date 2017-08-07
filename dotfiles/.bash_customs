@@ -48,3 +48,6 @@ export PATH=~/.npm-global/bin:$PATH
 
 # Terminator tab/title naming
 set_title() { printf "\e]2;$*\a"; }
+
+# editor
+export EDITOR='emacsclient -a $HOME/scripts/emacs-editor'
