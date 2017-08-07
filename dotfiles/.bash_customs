@@ -51,3 +51,8 @@ set_title() { printf "\e]2;$*\a"; }
 
 # editor
 export EDITOR='emacsclient -a $HOME/scripts/emacs-editor'
+
+# Undistract-me config
+# sudo apt-get install undistract-me
+. /usr/share/undistract-me/long-running.bash
+notify_when_long_running_commands_finish_install
