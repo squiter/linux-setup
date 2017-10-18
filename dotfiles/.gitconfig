@@ -3,7 +3,8 @@
   excludesfile = ~/.gitignore_global
 [user]
   name = Brunno dos Santos
-  email = squiter85@gmail.com
+  email = brunno@brunno.me
+  signingkey = 79F423FBB015FA27
 [alias]
   co = checkout
   ci = commit
@@ -43,3 +44,5 @@
   default = simple
 [init]
   templatedir = ~/.git-templates
+[commit]
+  gpgsign = true
