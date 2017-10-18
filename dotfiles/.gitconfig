@@ -4,7 +4,7 @@
 [user]
   name = Brunno dos Santos
   email = brunno@brunno.me
-  signingkey = 79F423FBB015FA27
+  signingkey = FE6A1FA1A86BDBC5
 [alias]
   co = checkout
   ci = commit

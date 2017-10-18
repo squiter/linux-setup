@@ -56,3 +56,6 @@ export EDITOR='emacsclient -a $HOME/scripts/emacs-editor'
 # sudo apt-get install undistract-me
 . /usr/share/undistract-me/long-running.bash
 notify_when_long_running_commands_finish_install
+
+# Set my key as default
+export GPGKEY=A86BDBC5
