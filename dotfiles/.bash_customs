@@ -52,6 +52,9 @@ set_title() { printf "\e]2;$*\a"; }
 # editor
 export EDITOR='emacsclient -a $HOME/scripts/emacs-editor'
 
+# Enable history for Erlang/Elixir
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 # Undistract-me config
 # sudo apt-get install undistract-me
 . /usr/share/undistract-me/long-running.bash
