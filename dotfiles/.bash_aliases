@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Open the last directory
 alias cdlast='cd $( ls -lt | grep d | head -1 |  cut -b 49- )'
 
@@ -43,3 +45,7 @@ alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
 alias full-upgrade="sudo apt-get update && sudo apt-get -u upgrade && sudo apt autoremove"
+
+alias mledger="ledger -f .ledger.data"
+
+alias bitcoin_today="curl https://api.coindesk.com/v1/bpi/currentprice/BRL.json | jsonValue rate_float 2"
