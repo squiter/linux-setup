@@ -62,3 +62,8 @@ notify_when_long_running_commands_finish_install
 
 # Set my key as default
 export GPGKEY=A86BDBC5
+
+# Bash json parser
+if [ -f "$HOME/scripts/json_value" ]; then
+    source "$HOME/scripts/json_value"
+fi
