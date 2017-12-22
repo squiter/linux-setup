@@ -46,6 +46,6 @@ alias pbpaste='xclip -selection clipboard -o'
 
 alias full-upgrade="sudo apt-get update && sudo apt-get -u upgrade && sudo apt autoremove"
 
-alias mledger="ledger -f .ledger.data"
+alias mledger="ledger -f ~/Dropbox/ledger/ledger.data"
 
 alias bitcoin_today="curl https://api.coindesk.com/v1/bpi/currentprice/BRL.json | jsonValue rate_float 2"
