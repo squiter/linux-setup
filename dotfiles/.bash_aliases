@@ -49,3 +49,4 @@ alias full-upgrade="sudo apt-get update && sudo apt-get -u upgrade && sudo apt a
 alias mledger="ledger -f ~/Dropbox/ledger/ledger.data"
 
 alias bitcoin_today="curl https://api.coindesk.com/v1/bpi/currentprice/BRL.json | jsonValue rate_float 2"
+alias bkp_lastpass="lpass export | gpg -r brunno@brunno.me --encrypt > ~/dropbox/bkps/`date +%Y-%m-%d`-lastpass-bkp.csv.gpg"
