@@ -50,3 +50,5 @@ alias mledger="ledger -f ~/Dropbox/ledger/ledger.data"
 
 alias bitcoin_today="curl https://api.coindesk.com/v1/bpi/currentprice/BRL.json | jsonValue rate_float 2"
 alias bkp_lastpass="lpass export | gpg -r brunno@brunno.me --encrypt > ~/dropbox/bkps/`date +%Y-%m-%d`-lastpass-bkp.csv.gpg"
+alias bigger_directories_in_home="sudo du -sx ~/* 2>/dev/null | sort -n"
+alias bigger_directories="sudo du -sx /* 2>/dev/null | sort -n"
