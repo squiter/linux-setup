@@ -46,3 +46,5 @@
   templatedir = ~/.git-templates
 [commit]
   gpgsign = true
+[github]
+  user = squiter
