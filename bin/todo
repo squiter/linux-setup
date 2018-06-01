@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "* TODO $1" >> $HOME/dropbox/org/refile.org
