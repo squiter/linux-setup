@@ -1,0 +1,3 @@
+#!/bin/bash
+
+fava ~/Dropbox/ledger/ledger.beancount &
