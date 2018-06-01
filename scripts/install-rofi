@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# Name: install_rofi
+# Author: Shion Ryuu<shionryuu@outlook.com>
+# This is a script used to install rofi on Ubuntu.
+# Test under Ubuntu 14.04 only.
+
+rofi_url="https://github.com/DaveDavenport/rofi/releases/download/1.5.1/rofi-1.5.1.tar.gz"
+
+apt-get update
+apt-get upgrade -y --show-upgraded
+apt-get install -y libxft-dev libxinerama-dev libpango1.0-dev flex bison librsvg2-dev
+
+check_url="https://github.com/libcheck/check/releases/download/0.12.0/check-0.12.0.tar.gz"
+
+if [ ! -s "./check.tar.gz" ]; then
+    wget -c -O check.tar.gz $check_url
+fi
+
+tar zxvf check.tar.gz
+cd ./check-*/
+autoreconf --install
+./configure
+make
+make check
+make install
+
+if [ ! -s "./rofi.tar.gz" ]; then
+    wget -c -O rofi.tar.gz $rofi_url
+fi
+
+tar zxvf rofi.tar.gz
+cd ./rofi-*/
+
+autoreconf -i
+./configure
+make && make install
+
+apt-get autoclean -y
+apt-get clean -y
+apt-get autoremove -y
+
+rm -rf ./check-*
+rm -rf ./rofi-*
