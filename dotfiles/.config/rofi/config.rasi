@@ -1,0 +1,6 @@
+configuration {
+  theme: "flat-orange";
+  modi: "window,drun,run,ssh";
+  kb-mode-next: "Alt+Tab";
+  kb-mode-previous: "Alt+Control+Tab";
+}
