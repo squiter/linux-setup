@@ -1,0 +1,79 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+	interval = 5
+	colors = true
+	color_green = '#35bc31'
+	color_yellow = '#dee50d'
+	color_white = '#FFFFFF'
+	color_blue = '#026ced'
+	color_orange = '#d89b17'
+	color_red = '#d8172e'
+	color_grey = '#777777'
+	color_good = '#35bc31'
+	color_degraded = '#dee50d'
+	color_bad = '#d8172e'
+}
+
+order += "squiter"
+order += "volume_status"
+order += "net_rate"
+order += "online_status"
+order += "wifi"
+order += "diskdata"
+order += "sysdata"
+order += "time"
+
+wifi {
+	format_up = "[\?color=white \uf1eb {ssid}] [\?color=grey {signal_percent}]"
+	format_down = "[\?color=grey Wifi Disconnected]"
+	thresholds = [
+			(0, "good"),
+			(50, "good"),
+			(49, "degraded"),
+			(29, "bad"),
+	]
+}
+
+net_rate {
+	format = "[\?color=yellow \ue9c3{up}] [\?color=green \ue9c2{down}]"
+	format_no_connection = "No network connection"
+	precision = 0
+}
+
+time {
+	format = "\uf073 %a %b %e %Y \uf017 %l:%M:%S %p"
+        on_click 1 = "exec gsimplecal"
+}
+
+mpris {
+    format = "[\?color=white \ue911 {player}]{previous}{toggle}{next} [\?color=grey [[{artist} - {title}]|[{title}]]]"
+    format_none = "no player"
+		icon_next = "\uf051"
+		icon_previous = "\uf048"
+		icon_pause = "\uf04c"
+		icon_play = "\uf04b"
+		icon_stop = "\uf04d"
+}
+
+diskdata {
+    format = "[\?color=red \uf0a0{read}] [\?color=orange \uf040{write}]"
+}
+
+volume_status {
+	format = "[\?color=white \uf028 {percentage}%]"
+}
+
+sysdata {
+	format = "\ue900 {cpu_usage}% \ue99d {mem_used_percent}%"
+	thresholds = {
+			'cpu': [(0, "good"), (40, "degraded"), (75, "bad")],
+			'mem': [(0, "good"), (40, "degraded"), (75, "bad")]
+	}
+}
