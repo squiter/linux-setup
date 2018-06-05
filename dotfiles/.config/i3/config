@@ -201,3 +201,9 @@ exec ~/scripts/set-keyboard
 exec rescuetime
 exec flock -w 0 /tmp/sound-switcher.lock -c "indicator-sound-switcher"
 exec flock -w 0 /tmp/caffeine.lock -c "caffeine-indicator"
+
+# Assign applications to your workspaces
+assign [class="^Franz"] 2
+assign [class="^Spotify"] 2
+assign [class="^Fortinet"] 10
+assign [class="^Forticlient"] 10
