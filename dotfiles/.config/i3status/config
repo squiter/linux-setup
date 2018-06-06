@@ -7,73 +7,69 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-	interval = 5
-	colors = true
-	color_green = '#35bc31'
-	color_yellow = '#dee50d'
-	color_white = '#FFFFFF'
-	color_blue = '#026ced'
-	color_orange = '#d89b17'
-	color_red = '#d8172e'
-	color_grey = '#777777'
-	color_good = '#35bc31'
-	color_degraded = '#dee50d'
-	color_bad = '#d8172e'
+    colors = true
+    interval = 20
 }
 
-order += "squiter"
-order += "volume_status"
+order += "spotify"
+order += "static_string i3lock"
+order += "static_string wallpaper_prev"
+order += "static_string wallpaper"
+order += "static_string wallpaper_next"
 order += "net_rate"
 order += "online_status"
-order += "wifi"
-order += "diskdata"
-order += "sysdata"
+order += "battery_level"
 order += "time"
 
-wifi {
-	format_up = "[\?color=white \uf1eb {ssid}] [\?color=grey {signal_percent}]"
-	format_down = "[\?color=grey Wifi Disconnected]"
-	thresholds = [
-			(0, "good"),
-			(50, "good"),
-			(49, "degraded"),
-			(29, "bad"),
-	]
+battery_level{
+    cache_timeout = 10
+	color_bad = "#FF0000"
+	color_charging = "#FCE94F"
+	color_degraded = "#ff7a00"
+	color_good = "#00FF00"
+
+	format_notify_charging = "charging"
+	format_notify_discharging = "discharging {percent}"
+	hide_when_full = False
+        hide_seconds = True
+	notification = True
+	notify_low_level = True
+	blocks = ""
+	charging_character = ""
+	format = " {percent} {icon} {time_remaining}"
+	color_charging = "#FFFFFF"
 }
 
+static_string wallpaper_next {
+	format = ""
+	on_click 1 = "exec --no-startup-id /usr/local/bin/waffle.sh next"
+}
+static_string wallpaper {
+	format = ""
+	on_click 1 = "exec --no-startup-id /usr/local/bin/waffle.sh last"
+}
+static_string wallpaper_prev {
+	format = ""
+	on_click 1 = "exec --no-startup-id /usr/local/bin/waffle.sh prev"
+}
+static_string i3lock {
+	format = ""
+	on_click 1 = "exec --no-startup-id i3lock -d -I 5 -i /home/bijan/Pictures/wallpapers/archlinux.png -f"
+}
 net_rate {
-	format = "[\?color=yellow \ue9c3{up}] [\?color=green \ue9c2{down}]"
-	format_no_connection = "No network connection"
+	format = " {down}  {up}"
+	format = "  {total}"
 	precision = 0
+	format_no_connection = ""
+    cache_timeout = 5
 }
-
+online_status {
+    format_offline = ""
+    format_online = ""
+    timeout = 20
+    url = "http://192.168.1.253/"
+}
 time {
-	format = "\uf073 %a %b %e %Y \uf017 %l:%M:%S %p"
-        on_click 1 = "exec gsimplecal"
-}
-
-mpris {
-    format = "[\?color=white \ue911 {player}]{previous}{toggle}{next} [\?color=grey [[{artist} - {title}]|[{title}]]]"
-    format_none = "no player"
-		icon_next = "\uf051"
-		icon_previous = "\uf048"
-		icon_pause = "\uf04c"
-		icon_play = "\uf04b"
-		icon_stop = "\uf04d"
-}
-
-diskdata {
-    format = "[\?color=red \uf0a0{read}] [\?color=orange \uf040{write}]"
-}
-
-volume_status {
-	format = "[\?color=white \uf028 {percentage}%]"
-}
-
-sysdata {
-	format = "\ue900 {cpu_usage}% \ue99d {mem_used_percent}%"
-	thresholds = {
-			'cpu': [(0, "good"), (40, "degraded"), (75, "bad")],
-			'mem': [(0, "good"), (40, "degraded"), (75, "bad")]
-	}
+	format = "   %A %e %B  %H:%M"
+	on_click 1 = "exec --no-startup-id gsimplecal"
 }
