@@ -9,7 +9,20 @@ rofi_url="https://github.com/DaveDavenport/rofi/releases/download/1.5.1/rofi-1.5
 
 apt-get update
 apt-get upgrade -y --show-upgraded
-apt-get install -y libxft-dev libxinerama-dev libpango1.0-dev flex bison librsvg2-dev
+apt-get install -y \
+        libxft-dev \
+        libxinerama-dev \
+        libpango1.0-dev \
+        flex \
+        bison \
+        librsvg2-dev \
+        libxkbcommon-dev \
+        libxcb-ewmh-dev \
+        libxcb-xrm-dev \
+        libxcb-randr0-dev \
+        libxcb-icccm4-dev \
+        libxcb-xinerama0-dev \
+        libstartup-notification0-dev
 
 check_url="https://github.com/libcheck/check/releases/download/0.12.0/check-0.12.0.tar.gz"
 
