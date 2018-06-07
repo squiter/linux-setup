@@ -1,0 +1,10 @@
+#!/bin/bash
+
+export DISPLAY=:0
+UA="Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405"
+URL=$(python ~/scripts/get-random-wallpaper-url.py)
+
+echo -e "url\t$URL"
+FILENAME=$(basename "${URL}")
+cd "/home/${USER}/Pictures/wallpapers"
+curl --cookie /tmp/wallpaperswide.cookie -A "${UA}" "${URL}" -o "${FILENAME}" && /usr/local/bin/waffle.sh last
