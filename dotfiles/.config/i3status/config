@@ -12,6 +12,7 @@ general {
 }
 
 order += "spotify"
+order += "do_not_disturb"
 order += "static_string i3lock"
 order += "static_string wallpaper_prev"
 order += "static_string wallpaper"
