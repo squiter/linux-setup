@@ -207,3 +207,8 @@ assign [class="^Franz"] 2
 assign [class="^Spotify"] 2
 assign [class="^Fortinet"] 10
 assign [class="^Forticlient"] 10
+
+# i3-gaps - https://gist.github.com/boreycutts/6417980039760d9d9dac0dd2148d4783
+for_window [class="^.*"] border pixel 5
+gaps inner 10
+gaps outer 10
