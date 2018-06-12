@@ -147,6 +147,16 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+# https://thomashunter.name/i3-configurator/
+# class                 border  bground text    indicator child_border
+client.focused          #A6B3CC #5FAFFF #2B2942 #C991E1   #5FAFFF
+client.focused_inactive #3A3A3A #565575 #EEEEEE #565575   #565575
+client.unfocused        #3A3A3A #121212 #808080 #292D2E   #121212
+client.urgent           #2F343A #875FD7 #EEEEEE #875FD7   #875FD7
+client.placeholder      #121212 #121212 #EEEEEE #121212   #121212
+
+client.background       #EEEEEE
+
 bindsym $mod+Control+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -154,8 +164,20 @@ bindsym $mod+Control+r mode "resize"
 bar {
         # pip install py3status
         status_command py3status
-        tray_output primary
+        # tray_output primary
         font pango:Inconsolata 13
+
+        colors {
+            background #121212
+            statusline #EEEEEE
+            separator  #808080
+
+            focused_workspace  #2B2942 #5FAFFF #100E23
+            active_workspace   #2B2942 #3A3A3A #EEEEEE
+            inactive_workspace #2B2942 #3A3A3A #808080
+            urgent_workspace   #2B2942 #875FD7 #EEEEEE
+            binding_mode       #2B2942 #875FD7 #EEEEEE
+      }
 }
 
 # Customizations
