@@ -1,8 +1,13 @@
 [global_config]
   always_split_with_profile = True
   enabled_plugins = APTURLHandler, LaunchpadCodeURLHandler, LaunchpadBugURLHandler
+  inactive_color_offset = 0.82
   suppress_multiple_term_dialog = True
+  title_inactive_bg_color = "#b2b2b2"
+  title_receive_bg_color = "#5fd787"
+  title_transmit_bg_color = "#5fafff"
 [keybindings]
+  broadcast_off = <Primary><Alt>o
   copy = <Alt>w
   cycle_next = <Alt>o
   cycle_prev = <Shift><Alt>o
@@ -25,20 +30,22 @@
     background_color = "#ffffdd"
     background_darkness = 0.65
     background_image = None
+    background_type = image
     font = Inconsolata Medium 15
     foreground_color = "#000000"
     palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
     scrollback_infinite = True
     use_system_font = False
   [[squiter]]
-    background_color = "#272822"
-    background_darkness = 0.98
+    background_color = "#100e23"
+    background_darkness = 0.84
     background_image = None
     background_type = transparent
-    cursor_color = "#f8f8f2"
+    cursor_color = "#6bc0e8"
+    cursor_shape = ibeam
     font = Inconsolata Medium 14
-    foreground_color = "#f8f8f2"
-    palette = "#272822:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f8f8f2:#75715e:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f9f8f5"
+    foreground_color = "#eeeeee"
+    palette = "#100e23:#ff5458:#5fffaf:#ffb378:#65b2ff:#906cff:#87ffff:#eeeeee:#808080:#ff5458:#5fffaf:#ffb378:#65b2ff:#906cff:#87ffff:#eeeeee"
     scrollback_infinite = True
     urgent_bell = True
     use_system_font = False
