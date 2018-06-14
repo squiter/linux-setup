@@ -223,6 +223,7 @@ exec ~/scripts/set-keyboard
 exec rescuetime
 exec flock -w 0 /tmp/sound-switcher.lock -c "indicator-sound-switcher"
 exec flock -w 0 /tmp/caffeine.lock -c "caffeine-indicator"
+exec feh --randomize --bg-fill ~/Pictures/wallpapers/*
 
 # Assign applications to your workspaces
 assign [class="^Franz"] 2
