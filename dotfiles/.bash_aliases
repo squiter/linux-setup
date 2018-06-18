@@ -52,3 +52,5 @@ alias bitcoin_today="curl https://api.coindesk.com/v1/bpi/currentprice/BRL.json 
 alias bkp_lastpass="lpass export | gpg -r brunno@brunno.me --encrypt > ~/dropbox/bkps/`date +%Y-%m-%d`-lastpass-bkp.csv.gpg"
 alias bigger_directories_in_home="sudo du -sx ~/* 2>/dev/null | sort -n"
 alias bigger_directories="sudo du -sx /* 2>/dev/null | sort -n"
+
+alias dired="emacsclient -a '' -t -e '(my-dired-frame default-directory)'"
