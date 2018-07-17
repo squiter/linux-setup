@@ -27,10 +27,19 @@ order += "static_string wallpaper"
 order += "static_string wallpaper_next"
 order += "net_rate"
 order += "battery_level"
+order += "weather_owm"
 order += "time"
 
 spotify{
         format_down = ""
+}
+
+weather_owm {
+  api_key = "67235c11fdc8b18ad5c951069e4db457"
+  city = "sao paulo"
+  country = "brazil"
+  unit_temperature = "C"
+  format = '{temperature}[ {rain}], {forecast}'
 }
 
 battery_level{
