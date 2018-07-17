@@ -44,7 +44,11 @@
   default = simple
 [init]
   templatedir = ~/.git-templates
+[magit]
+  hideCampaign = true
 [commit]
   gpgsign = true
 [github]
   user = squiter
+[rerere]
+  enabled = true
