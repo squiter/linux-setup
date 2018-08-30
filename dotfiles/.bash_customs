@@ -67,3 +67,8 @@ export GPGKEY=A86BDBC5
 if [ -f "$HOME/scripts/json_value" ]; then
     source "$HOME/scripts/json_value"
 fi
+
+# Exercism
+if [ -f ~/.config/exercism/exercism_completion.bash ]; then
+    source ~/.config/exercism/exercism_completion.bash
+fi
