@@ -218,6 +218,7 @@ bindsym $mod+Control+Right workspace next
 bindsym $mod+Control+Left workspace prev
 
 # Startup
+exec compton
 exec dropbox start
 exec ~/scripts/set-keyboard
 exec flock -w 0 /tmp/rescuetime.lock -c "rescuetime"
@@ -232,6 +233,5 @@ assign [class="^Fortinet"] 10
 assign [class="^Forticlient"] 10
 
 # i3-gaps - https://gist.github.com/boreycutts/6417980039760d9d9dac0dd2148d4783
-for_window [class="^.*"] border pixel 5
-gaps inner 10
-gaps outer 10
+for_window [class="^.*"] border pixel 3
+gaps inner 25
