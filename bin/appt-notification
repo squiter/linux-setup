@@ -1,9 +1,11 @@
 #!/bin/sh
 
 TIME="$1"
-MSG=$(echo "$2" | sed -e 's/\(:\)[a-zA-Z]*\(:\)/\1\2/' | sed -e 's/://g') # removes orgmode tags
+MSG=$(echo "$2" | sed -e 's/\:[a-zA-Z:]*\://')
 ICON="$3"
+
+echo $2 >> $HOME/bin/notifications.log
 
 notify-send -i "$ICON" "ORGMODE!" "Appointment in $TIME minutes:\n$MSG\n"
 #espeak "Hey Skeeter! $MSG"
-aplay "~/bin/LTTP_ItemFanfare_Stereo.wav"
+aplay "$HOME/bin/LTTP_ItemFanfare_Stereo2.wav"
