@@ -3,6 +3,9 @@
 # Open the last directory
 alias cdlast='cd $( ls -lt | grep d | head -1 |  cut -b 49- )'
 
+# List last updated files
+alias lslast='ls -lt | head'
+
 # Locaweb Alias
 alias nibbler='lpass show --password -c nibbler && ssh -i ~/.ssh/id_rsa_gateway _bsantos@nibbler0001.linux.locaweb.com.br'
 alias nibbler-ftp='lpass show --password -c nibbler && sftp -i ~/.ssh/id_rsa_gateway _bsantos@nibbler0001.linux.locaweb.com.br'
