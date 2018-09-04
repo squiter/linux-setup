@@ -72,3 +72,6 @@ fi
 if [ -f ~/.config/exercism/exercism_completion.bash ]; then
     source ~/.config/exercism/exercism_completion.bash
 fi
+
+# Fix to use Dunst instead norify-osd in i3
+export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
