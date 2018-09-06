@@ -57,3 +57,4 @@ alias bigger_directories_in_home="sudo du -sx ~/* 2>/dev/null | sort -n"
 alias bigger_directories="sudo du -sx /* 2>/dev/null | sort -n"
 
 alias dired="emacsclient -a '' -t -e '(my-dired-frame default-directory)'"
+alias magit="emacsclient -a '' -t -e '(magit-status)'"
