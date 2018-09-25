@@ -30,7 +30,7 @@ function main()
     if [[ -n "${matching}" ]]; then
         local new_notes=$( (echo "${all_notes}")  | grep -v "^${note}$" )
     else
-        local new_notes=$( (echo -e "${all_notes}\n* TODO ${note}") | grep -v "^$")
+        local new_notes=$( (echo -e "${all_notes}\n* TODO ${note} :REFILE:") | grep -v "^$")
     fi
 
     echo "${new_notes}" > "${REFILE_FILE}"
