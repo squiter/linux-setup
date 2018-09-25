@@ -51,6 +51,7 @@ set_title() { printf "\e]2;$*\a"; }
 
 # editor
 export EDITOR='emacsclient -a $HOME/scripts/emacs-editor'
+export VISUAL=$EDITOR
 
 # Enable history for Erlang/Elixir
 export ERL_AFLAGS="-kernel shell_history enabled"
