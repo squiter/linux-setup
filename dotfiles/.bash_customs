@@ -44,7 +44,10 @@ export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 export PATH="$PATH:/opt/ActiveTcl-8.6/bin"
 
 # NPM
-export PATH=~/.npm-global/bin:$PATH
+export PATH=$HOME/node_modules/.bin/:$PATH
+
+# pip --user
+export PATH=$HOME/.local/bin:$PATH
 
 # Terminator tab/title naming
 set_title() { printf "\e]2;$*\a"; }
