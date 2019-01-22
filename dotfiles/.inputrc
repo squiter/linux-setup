@@ -1,9 +1,9 @@
-set editing mode-set emacs
+set editing-mode emacs
 # set bell-style visible
 set completion-ignore-case on
 set history-size -1
 set keyseq-timeout 1000
-set colored-status on
+set colored-stats on
 
 # Reload the .inputrc file
 "\C-x\C-r":re-read-init-file
