@@ -22,16 +22,23 @@ order += "do_not_disturb"
 order += "static_string i3lock"
 order += "apt_updates"
 order += "sysdata"
-order += "static_string wallpaper_prev"
-order += "static_string wallpaper"
-order += "static_string wallpaper_next"
+#order += "static_string wallpaper_prev"
+#order += "static_string wallpaper"
+#order += "static_string wallpaper_next"
 order += "net_rate"
 order += "battery_level"
 order += "weather_owm"
+order += "volume_status"
 order += "time"
 
 spotify{
         format_down = ""
+}
+
+# display DO NOT DISTURB/DISTURB
+do_not_disturb {
+    format = '[\?color=state [\?if=state DO NOT DISTURB|DISTURB]]'
+    thresholds = [(0, "darkgray"), (1, "good")]
 }
 
 weather_owm {
@@ -81,6 +88,6 @@ net_rate {
         cache_timeout = 5
 }
 time {
-	format = "   %A %e %B  %H:%M"
+	format = "   %a %e %b  %H:%M"
 	on_click 1 = "exec --no-startup-id gsimplecal"
 }
