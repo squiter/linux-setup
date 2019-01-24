@@ -196,6 +196,7 @@ bindsym $mod+d exec rofi -show drun
 bindsym $mod+Tab exec rofi -show window
 bindsym $mod+o exec rofi-add-task.sh
 bindsym $mod+p exec rofi-last-pass.sh
+bindsym $mod+y exec rofi-yubikey.sh
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2+ #increase sound volume
