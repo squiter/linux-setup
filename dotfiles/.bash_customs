@@ -79,3 +79,6 @@ fi
 
 # Fix to use Dunst instead norify-osd in i3
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
+
+# Homebrew 4 linux
+PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
