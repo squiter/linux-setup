@@ -80,5 +80,15 @@ fi
 # Fix to use Dunst instead norify-osd in i3
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
 
+# Stolen from https://github.com/jturolla/deq
+function deq() {
+  if [[ -z "$1" ]]
+  then
+    docker run -i jturolla/deq:latest eq
+  else
+    docker run -i jturolla/deq:latest eq "$1"
+  fi
+}
+
 # Homebrew 4 linux
 PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
