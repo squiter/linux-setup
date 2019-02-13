@@ -23,6 +23,7 @@
     # https://github.com/knopwob/dunst/issues/26#issuecomment-36159395
     icon_position = left
     icon_folders = /usr/share/icons/hicolor/48x48/
+    max_icon_size = 48
 
 [frame]
     width = 1
