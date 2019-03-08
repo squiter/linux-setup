@@ -29,10 +29,10 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
+# %%hotkey: Run terminal: exec i30sensible-terminal %%
 bindsym $mod+Return exec i3-sensible-terminal
 
-# kill focused window
+# %%hotkey: Kill focused window %%
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
@@ -42,111 +42,163 @@ bindsym $mod+Shift+q kill
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# change focus
+# focus windows with jkl;
+# %%hotkey: Focus the left window %%
 bindsym $mod+j focus left
+# %%hotkey: Focus the window bellow %%
 bindsym $mod+k focus down
+# %%hotkey: Focus the window above %%
 bindsym $mod+l focus up
+# %%hotkey: Focus the right window %%
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
+# %%hotkey: Focus the left window %%
 bindsym $mod+Left focus left
+# %%hotkey: Focus the window bellow %%
 bindsym $mod+Down focus down
+# %%hotkey: Focus the window above %%
 bindsym $mod+Up focus up
+# %%hotkey: Focus the righ window %%
 bindsym $mod+Right focus right
 
 # move focused window
+# %%hotkey: Move focused window to left %%
 bindsym $mod+Shift+j move left
+# %%hotkey: Move focused window down %%
 bindsym $mod+Shift+k move down
+# %%hotkey: Move focused window up %%
 bindsym $mod+Shift+l move up
+# %%hotkey: Move focused window to right %%
 bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
+# %%hotkey: Move focused window to left %%
 bindsym $mod+Shift+Left move left
+# %%hotkey: Move focused window down %%
 bindsym $mod+Shift+Down move down
+# %%hotkey: Move focused window up %%
 bindsym $mod+Shift+Up move up
+# %%hotkey: Move focused window to right %%
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
+# %%hotkey: Split in horizontal orientation %%
 bindsym $mod+h split h
 
 # split in vertical orientation
+# %%hotkey: Split in vertical orientation %%
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
+# %%hotkey: Toggle fullscreen %%
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
+# %%hotkey: Change layout to stack %%
 bindsym $mod+s layout stacking
+# %%hotkey: Change layout to tabs %%
 bindsym $mod+w layout tabbed
+# %%hotkey: Change layout to split %%
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
+# %%hotkey: Toggle tiling / floating %%
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
+# %%hotkey: Change focus between tiling / floating windows %%
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
+# %%hotkey: Focus the parent window %%
 bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
 
 # lock i3
+# %%hotkey: Lock computer %%
 bindsym $mod+Mod1+l exec i3lock-fancy -pg
 
 # switch to workspace
+# %%hotkey: Switch to workspace 1 %%
 bindsym $mod+1 workspace 1
+# %%hotkey: Switch to workspace 2 %%
 bindsym $mod+2 workspace 2
+# %%hotkey: Switch to workspace 3 %%
 bindsym $mod+3 workspace 3
+# %%hotkey: Switch to workspace 4 %%
 bindsym $mod+4 workspace 4
+# %%hotkey: Switch to workspace 5 %%
 bindsym $mod+5 workspace 5
+# %%hotkey: Switch to workspace 6 %%
 bindsym $mod+6 workspace 6
+# %%hotkey: Switch to workspace 7 %%
 bindsym $mod+7 workspace 7
+# %%hotkey: Switch to workspace 8 %%
 bindsym $mod+8 workspace 8
+# %%hotkey: Switch to workspace 9 %%
 bindsym $mod+9 workspace 9
+# %%hotkey: Switch to workspace 10 %%
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
+# %%hotkey: Move window to workspace 1 %%
 bindsym $mod+Shift+1 move container to workspace 1
+# %%hotkey: Move window to workspace 2 %%
 bindsym $mod+Shift+2 move container to workspace 2
+# %%hotkey: Move window to workspace 3 %%
 bindsym $mod+Shift+3 move container to workspace 3
+# %%hotkey: Move window to workspace 4 %%
 bindsym $mod+Shift+4 move container to workspace 4
+# %%hotkey: Move window to workspace 5 %%
 bindsym $mod+Shift+5 move container to workspace 5
+# %%hotkey: Move window to workspace 6 %%
 bindsym $mod+Shift+6 move container to workspace 6
+# %%hotkey: Move window to workspace 7 %%
 bindsym $mod+Shift+7 move container to workspace 7
+# %%hotkey: Move window to workspace 8 %%
 bindsym $mod+Shift+8 move container to workspace 8
+# %%hotkey: Move window to workspace 9 %%
 bindsym $mod+Shift+9 move container to workspace 9
+# %%hotkey: Move window to workspace 10 %%
 bindsym $mod+Shift+0 move container to workspace 10
 
-# reload the configuration file
+# %%hotkey: Reload the configuration file %%
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# %%hotkey: Restart i3 (preserves your layout/session, can be used to upgrade i3) %%
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
+# %%hotkey: Exit i3 - Log out X session %%
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
+        # %%hotkey: In resize mode: Shrink the window's width %%
         bindsym j resize shrink width 10 px or 10 ppt
+        # %%hotkey: In resize mode: Grow the window's width %%
         bindsym k resize grow height 10 px or 10 ppt
+        # %%hotkey: In resize mode: Shrink the window's height %%
         bindsym l resize shrink height 10 px or 10 ppt
+        # %%hotkey: In resize mode: Grow the window's height %%
         bindsym semicolon resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
+        # %%hotkey: In resize mode: Shrink the window's width %%
         bindsym Left resize shrink width 10 px or 10 ppt
+        # %%hotkey: In resize mode: Grow the window's widht %%
         bindsym Down resize grow height 10 px or 10 ppt
+        # %%hotkey: In resize mode: Shrink the window's height %%
         bindsym Up resize shrink height 10 px or 10 ppt
+        # %%hotkey: In resize mode: Grow the window's height %%
         bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
+        # %%hotkey: Exit the resize mode %%
         bindsym Return mode "default"
+        # %%hotkey: Exit the resize mode %%
         bindsym Escape mode "default"
 }
 
@@ -160,6 +212,7 @@ client.placeholder      #121212 #121212 #EEEEEE #121212   #121212
 
 client.background       #EEEEEE
 
+# %%hotkey: Enter in resize mode %%
 bindsym $mod+Control+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -184,19 +237,28 @@ bar {
 }
 
 # Customizations
-
 # Polybar
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
+# %%hotkey: Run gsimplecal %%
 bindsym $mod+c exec gsimplecal
+# %%hotkey: Open print-screen dialog %%
 bindsym --release Print exec "gnome-screenshot -a -i"
+# %%hotkey: Just take a print-screen %%
 bindsym --release Shift+Print exec "gnome-screenshot -a"
 
+# %%hotkey: Rofi: drun - Run applications %%
 bindsym $mod+d exec rofi -show drun
+# %%hotkey: Rofi: window - Show openned windows %%
 bindsym $mod+Tab exec rofi -show window
+# %%hotkey: Rofi: add-task - Add a task in org-mode %%
 bindsym $mod+o exec rofi-add-task.sh
+# %%hotkey: Rofi: last-pass - Copy a password to clipboard %%
 bindsym $mod+p exec rofi-last-pass.sh
+# %%hotkey: Rofi: yubikey - Copy a two-factor code to clipboard %%
 bindsym $mod+y exec rofi-yubikey.sh
+# %%hotkey: Rofi: keys - Show all current keybinds %%
+bindsym $mod+b exec dmenu-i3-hotkeys.py
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2+ #increase sound volume
@@ -210,19 +272,23 @@ bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# Make the currently focused window a scratchpad
+# %%hotkey: Send the focused window to scratchpad - like minimize %%
 bindsym $mod+Shift+minus move scratchpad
-# Show the first scratchpad window
+# %%hotkey: Retrieve the first scratchpad window %%
 bindsym $mod+minus scratchpad show
 
-# Move between workspaces
+
+# %%hotkey: Move to next workspace %%
 bindsym $mod+Control+semicolon workspace next
+# %%hotkey: Move to previous workspace %%
 bindsym $mod+Control+h workspace prev
+# %%hotkey: Move to next workspace %%
 bindsym $mod+Control+Right workspace next
+# %%hotkey: Move to previous workspace %%
 bindsym $mod+Control+Left workspace prev
 
 # Startup
-exec compton
+# exec compton
 exec dropbox start
 exec ~/scripts/set-keyboard
 exec flock -w 0 /tmp/rescuetime.lock -c "rescuetime"
