@@ -29,6 +29,11 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+# It includes my nubank custom configurations
+if [ -f "$HOME/.bash_nu_customs" ] ; then
+    source "$HOME/.bash_nu_customs"
+fi
+
 export CDPATH=".:~/:~/Downloads:~/dev/code:~/dev/nu"
 
 # Ignore case
