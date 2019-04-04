@@ -295,13 +295,14 @@ exec flock -w 0 /tmp/rescuetime.lock -c "rescuetime"
 exec flock -w 0 /tmp/sound-switcher.lock -c "indicator-sound-switcher"
 exec flock -w 0 /tmp/caffeine.lock -c "caffeine-indicator"
 exec flock -w 0 /tmp/autokey.lock -c "autokey"
+exec nm-applet
 exec feh --randomize --bg-fill ~/Pictures/wallpapers/*
 
 # Assign applications to your workspaces
-assign [class="^Franz"] 2
-assign [class="^Spotify"] 2
-assign [class="^Fortinet"] 10
-assign [class="^Forticlient"] 10
+assign [class="^Franz"] 10
+assign [class="^Spotify"] 9
+assign [class="^Fortinet"] 8
+assign [class="^Forticlient"] 8
 
 # i3-gaps - https://gist.github.com/boreycutts/6417980039760d9d9dac0dd2148d4783
 for_window [class="^.*"] border pixel 3
