@@ -19,13 +19,11 @@ done
 echo ""
 echo "### Staging Aliases"
 for prototype in $staging_prototypes;do
-    echo "alias p${prototype}=\"nu k8s ctl ${prototype} --env staging --stack-id $staging_stack_id --\""
+    echo "alias s${prototype}=\"nu k8s ctl ${prototype} --env staging --stack-id $staging_stack_id --\""
 done
 
 echo ""
 echo "### Monitoring Aliases"
-for env in $environments; do
-    m_stack_id="${env}_monitoring_stack_id"
-    echo "alias pmonitoring=\"nu k8s ctl monitoring --env $env --stack-id ${!m_stack_id} --\""
-done
+echo "alias pmonitoring=\"nu k8s ctl monitoring --env prod --stack-id $prod_monitoring_stack_id --\""
+echo "alias smonitoring=\"nu k8s ctl monitoring --env staging --stack-id $staging_monitoring_stack_id --\""
 
