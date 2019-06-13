@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -eou pipefail
+
+environments="prod staging"
+
+for env in $environments; do
+    declare "${env}_prototypes"="$(nu stack current --env $env | jq '.prototypes | .[]' | xargs)"
+    declare "${env}_stack_id"="$(nu stack current --env $env | jq .id)"
+    declare "${env}_monitoring_stack_id"="$(nu stack current --prototype monitoring --env $env | jq .id)"
+done
+
+echo ""
+echo "### Production Aliases"
+for prototype in $prod_prototypes;do
+    echo "alias p${prototype}=\"nu k8s ctl ${prototype} --env prod --stack-id $prod_stack_id --\""
+done
+
+echo ""
+echo "### Staging Aliases"
+for prototype in $staging_prototypes;do
+    echo "alias p${prototype}=\"nu k8s ctl ${prototype} --env staging --stack-id $staging_stack_id --\""
+done
+
+echo ""
+echo "### Monitoring Aliases"
+for env in $environments; do
+    m_stack_id="${env}_monitoring_stack_id"
+    echo "alias pmonitoring=\"nu k8s ctl monitoring --env $env --stack-id ${!m_stack_id} --\""
+done
+

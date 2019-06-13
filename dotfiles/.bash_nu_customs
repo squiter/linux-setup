@@ -1,18 +1,13 @@
 #!/bin/bash
 
-export prod_stack_id="u"
-export stagin_stack_id="j"
+nu_refresh_aliases () {
+    nu-generate-aliases > ~/.bash_nu_aliases
+    source ~/.bash_nu_aliases
+}
 
-## Nubank Clusters
-for n in {0..7}; do
-    prototype="s${n}"
-
-    alias p${prototype}="nu k8s ctl ${prototype} --env prod --stack-id $prod_stack_id --"
-    alias s${prototype}="nu k8s ctl ${prototype} --env staging --stack-id $staging_stack_id --"
-done
-
-for named_prot in global monitoring; do
-    alias p${named_prot}="nu k8s ctl ${named_prot} --env prod --stack-id $prod_stack_id --"
-    alias s${named_prot}="nu k8s ctl ${named_prot} --env staging --stack-id $staging_stack_id --"
-done
-
+# if doesn't exist, generate
+if [ -f ~/.bash_nu_aliases ]; then
+    source ~/.bash_nu_aliases
+else
+    nu_refresh_aliases
+fi
