@@ -1,0 +1,4 @@
+#!/bin/bash
+
+xrandr --output DP-1 --auto --left-of eDP-1
+feh --randomize --bg-fill ~/Pictures/wallpapers/*
