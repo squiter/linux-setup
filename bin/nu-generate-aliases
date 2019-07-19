@@ -4,8 +4,10 @@ set -eou pipefail
 
 environments="prod staging"
 
+echo "### Prototypes getters"
 for env in $environments; do
     declare "${env}_prototypes"="$(nu stack current --env $env | jq '.prototypes | .[]' | xargs)"
+    echo "alias ${env}_prototypes=\"nu stack current --env $env | jq '.prototypes | .[]' | xargs\""
     declare "${env}_stack_id"="$(nu stack current --env $env | jq .id)"
     declare "${env}_monitoring_stack_id"="$(nu stack current --prototype monitoring --env $env | jq .id)"
 done
