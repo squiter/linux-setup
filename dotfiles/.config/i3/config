@@ -241,7 +241,7 @@ bar {
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # %%hotkey: Run gsimplecal %%
-bindsym $mod+c exec gsimplecal
+bindsym $mod+Contrl+c exec gsimplecal
 # %%hotkey: Open print-screen dialog %%
 bindsym --release Print exec "gnome-screenshot -a -i"
 # %%hotkey: Just take a print-screen %%
@@ -259,6 +259,8 @@ bindsym $mod+p exec rofi-last-pass.sh
 bindsym $mod+y exec rofi-yubikey.sh
 # %%hotkey: Rofi: keys - Show all current keybinds %%
 bindsym $mod+b exec dmenu-i3-hotkeys.py
+# %%hotkey: Rofi: calc - Open calculatoR
+bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort"
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2+ #increase sound volume
