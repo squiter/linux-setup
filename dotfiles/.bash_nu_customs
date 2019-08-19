@@ -1,5 +1,21 @@
 #!/bin/bash
 
+function nu-docker-ruby {
+  echo $*;
+  NU_RUBY_IMG=quay.io/nubank/nudev-ruby:1d30c08
+  docker run --rm \
+    -ti \
+    -v $PWD:/project \
+    -v ruby-bundler:/vendor/bundle \
+    -v $NU_HOME/.nu:/.nu \
+    -e AWS_ACCESS_KEY_ID \
+    -e AWS_SECRET_ACCESS_KEY \
+    -e NU_DEPLOY_DEBUG \
+    -e PAGER='busybox cat' \
+    $* \
+    --entrypoint /bin/bash $NU_RUBY_IMG
+}
+
 nu_refresh_aliases () {
     nu-generate-aliases > ~/.bash_nu_aliases
     source ~/.bash_nu_aliases
