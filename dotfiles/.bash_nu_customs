@@ -11,3 +11,5 @@ if [ -f ~/.bash_nu_aliases ]; then
 else
     nu_refresh_aliases
 fi
+
+source "$NU_HOME/nucli/nu.bashcompletion"
