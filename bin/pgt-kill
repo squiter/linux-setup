@@ -2,7 +2,7 @@
 
 __pgt_kill() {
     pids=(
-	$(ps aux | peco |  awk '{print $2}')
+	$(ps aux | fzf |  awk '{print $2}')
     )
 
     for pid in "${pids[@]}"; do

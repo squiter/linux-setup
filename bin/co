@@ -7,7 +7,7 @@ __pgt-switch-branch() {
     __local_branches
     __remote_branches
 
-    branch=$(cat /tmp/bash_remote_co | peco | cut -d' ' -f2)
+    branch=$(cat /tmp/bash_remote_co | fzf | cut -d' ' -f2)
 
     rm -rf /tmp/bash_remote_co
 

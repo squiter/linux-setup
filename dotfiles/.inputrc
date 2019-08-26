@@ -9,19 +9,19 @@ set colored-stats on
 "\C-x\C-r":re-read-init-file
 
 # Show all available binds
-"\C-xh":"bind -p|peco\C-j"
+"\C-xh":"bind -p|fzf\C-j"
 
 # Add sudo to current command
 "\C-hs":"\C-asudo \C-e"
 
 # Project find file
-"\C-x\C-f":"$(find . | peco)\C-j"
+"\C-x\C-f":"$(find . | fzf)\C-j"
 
 # Go to project
-"\C-xo":"cd $(all_projects | peco)\C-j"
+"\C-xo":"cd $(all_projects | fzf)\C-j"
 
 # Copy lpass password
-"\C-xp":"lpass show --password -c $(lpass-get-id)\C-j"
+"\C-xp":"$ lpass show -c --password $(lpass ls  | fzf | awk '{print $(NF)}' | sed 's/\]//g')\C-j"
 
 # Kill process
 "\C-xk":"pgt-kill\C-j"
@@ -33,4 +33,4 @@ set colored-stats on
 "\C-r": "\C-a hh \C-j"
 
 # Like helm show commands
-"\ex":"$(compgen -ac | peco)\C-j"
+"\ex":"$(compgen -ac | fzf)\C-j"
