@@ -105,3 +105,5 @@ fd() {
                   -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
 }
+
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
