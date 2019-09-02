@@ -2,34 +2,39 @@
 
 set -eou pipefail
 
+countries="br mx"
 environments="prod staging"
 
-echo "### Prototypes getters"
-for env in $environments; do
-    declare "${env}_prototypes"="$(nu stack current --env $env | jq '.prototypes | .[]' | xargs)"
-    echo "alias ${env}_prototypes=\"nu stack current --env $env | jq '.prototypes | .[]' | xargs\""
-    declare "${env}_stack_id"="$(nu stack current --env $env | jq .id)"
-    declare "${env}_monitoring_stack_id"="$(nu stack current --prototype monitoring --env $env | jq .id)"
+for country in $countries; do
+    declare nucli="nu-${country}"
+    echo "### Prototypes getters"
+    for env in $environments; do
+        declare "${env}_prototypes"="$($nucli stack current --env $env | jq '.prototypes | .[]' | xargs)"
+
+        echo "alias ${env}_prototypes=\"${nucli} stack current --env $env | jq '.prototypes | .[]' | xargs\""
+
+        declare "${env}_stack_id"="$($nucli stack current --env $env | jq .id)"
+        declare "${env}_monitoring_stack_id"="$($nucli stack current --prototype monitoring --env $env | jq .id)"
+    done
+
+    echo ""
+    echo "### Production Aliases"
+    for prototype in $prod_prototypes;do
+        echo "alias ${country}-p${prototype}=\"${nucli} k8s ctl ${prototype} --env prod --stack-id $prod_stack_id --\""
+        echo "alias ${country}-mp${prototype}=\"${nucli} k8s ctl ${prototype} --env prod --stack-id $prod_stack_id -- -n monitoring \""
+    done
+
+    echo ""
+    echo "### Staging Aliases"
+    for prototype in $staging_prototypes;do
+        echo "alias ${country}-s${prototype}=\"${nucli} k8s ctl ${prototype} --env staging --stack-id $staging_stack_id --\""
+        echo "alias ${country}-ms${prototype}=\"${nucli} k8s ctl ${prototype} --env staging --stack-id $staging_stack_id -- -n monitoring \""
+    done
+
+    echo ""
+    echo "### Monitoring Aliases"
+    echo "alias ${country}-pmonitoring=\"${nucli} k8s ctl monitoring --env prod --stack-id $prod_monitoring_stack_id --\""
+    echo "alias ${country}-mpmonitoring=\"${nucli} k8s ctl monitoring --env prod --stack-id $prod_monitoring_stack_id -- -n monitoring \""
+    echo "alias ${country}-smonitoring=\"${nucli} k8s ctl monitoring --env staging --stack-id $staging_monitoring_stack_id --\""
+    echo "alias ${country}-msmonitoring=\"${nucli} k8s ctl monitoring --env staging --stack-id $staging_monitoring_stack_id -- -n monitoring \""
 done
-
-echo ""
-echo "### Production Aliases"
-for prototype in $prod_prototypes;do
-    echo "alias p${prototype}=\"nu k8s ctl ${prototype} --env prod --stack-id $prod_stack_id --\""
-    echo "alias mp${prototype}=\"nu k8s ctl ${prototype} --env prod --stack-id $prod_stack_id -- -n monitoring \""
-done
-
-echo ""
-echo "### Staging Aliases"
-for prototype in $staging_prototypes;do
-    echo "alias s${prototype}=\"nu k8s ctl ${prototype} --env staging --stack-id $staging_stack_id --\""
-    echo "alias ms${prototype}=\"nu k8s ctl ${prototype} --env staging --stack-id $staging_stack_id -- -n monitoring \""
-done
-
-echo ""
-echo "### Monitoring Aliases"
-echo "alias pmonitoring=\"nu k8s ctl monitoring --env prod --stack-id $prod_monitoring_stack_id --\""
-echo "alias mpmonitoring=\"nu k8s ctl monitoring --env prod --stack-id $prod_monitoring_stack_id -- -n monitoring \""
-echo "alias smonitoring=\"nu k8s ctl monitoring --env staging --stack-id $staging_monitoring_stack_id --\""
-echo "alias msmonitoring=\"nu k8s ctl monitoring --env staging --stack-id $staging_monitoring_stack_id -- -n monitoring \""
-
