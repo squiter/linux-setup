@@ -9,9 +9,9 @@ for country in $countries; do
     declare nucli="nu-${country}"
     echo "### Prototypes getters"
     for env in $environments; do
-        declare "${env}_prototypes"="$($nucli stack current --env $env | jq '.prototypes | .[]' | xargs)"
+        declare "${country}_${env}_prototypes"="$($nucli stack current --env $env | jq '.prototypes | .[]' | xargs)"
 
-        echo "alias ${env}_prototypes=\"${nucli} stack current --env $env | jq '.prototypes | .[]' | xargs\""
+        echo "alias ${country}_${env}_prototypes=\"${nucli} stack current --env $env | jq '.prototypes | .[]' | xargs\""
 
         declare "${env}_stack_id"="$($nucli stack current --env $env | jq .id)"
         declare "${env}_monitoring_stack_id"="$($nucli stack current --prototype monitoring --env $env | jq .id)"
@@ -19,14 +19,16 @@ for country in $countries; do
 
     echo ""
     echo "### Production Aliases"
-    for prototype in $prod_prototypes;do
+    declare actual_prototypes="${country}_prod_prototypes"
+    for prototype in ${!actual_prototypes};do
         echo "alias ${country}-p${prototype}=\"${nucli} k8s ctl ${prototype} --env prod --stack-id $prod_stack_id --\""
         echo "alias ${country}-mp${prototype}=\"${nucli} k8s ctl ${prototype} --env prod --stack-id $prod_stack_id -- -n monitoring \""
     done
 
     echo ""
     echo "### Staging Aliases"
-    for prototype in $staging_prototypes;do
+    declare actual_prototypes="${country}_staging_prototypes"
+    for prototype in ${!actual_prototypes};do
         echo "alias ${country}-s${prototype}=\"${nucli} k8s ctl ${prototype} --env staging --stack-id $staging_stack_id --\""
         echo "alias ${country}-ms${prototype}=\"${nucli} k8s ctl ${prototype} --env staging --stack-id $staging_stack_id -- -n monitoring \""
     done
