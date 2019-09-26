@@ -248,7 +248,7 @@ bindsym --release Print exec "gnome-screenshot -a -i"
 bindsym --release Shift+Print exec "gnome-screenshot -a"
 
 # %%hotkey: Rofi: drun - Run applications %%
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec rofi -show drun -show-icons
 # %%hotkey: Rofi: window - Show openned windows %%
 bindsym $mod+Tab exec rofi -show window
 # %%hotkey: Rofi: add-task - Add a task in org-mode %%
