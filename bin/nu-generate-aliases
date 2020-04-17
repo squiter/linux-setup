@@ -9,11 +9,10 @@ for country in $countries; do
     declare nucli="nu-${country}"
     echo "### Prototypes getters"
     for env in $environments; do
-        declare "${country}_${env}_prototypes"="$($nucli stack current --env $env | jq '.prototypes | .[]' | xargs)"
+        declare "${country}_${env}_prototypes"="$($nucli stack current --env $env | jq '.prototypes | .[]' | grep -v nl | grep -v nu | grep -v ds | xargs)"
 
         echo "alias ${country}_${env}_prototypes=\"${nucli} stack current --env $env | jq '.prototypes | .[]' | xargs\""
 
-        declare "${env}_stack_id"="$($nucli stack current --env $env | jq .id)"
         declare "${env}_monitoring_stack_id"="$($nucli stack current --prototype monitoring --env $env | jq .id)"
     done
 
@@ -21,16 +20,18 @@ for country in $countries; do
     echo "### Production Aliases"
     declare actual_prototypes="${country}_prod_prototypes"
     for prototype in ${!actual_prototypes};do
-        echo "alias ${country}-p${prototype}=\"${nucli} k8s ctl ${prototype} --env prod --stack-id $prod_stack_id --\""
-        echo "alias ${country}-mp${prototype}=\"${nucli} k8s ctl ${prototype} --env prod --stack-id $prod_stack_id -- -n monitoring \""
+        declare current_stack_id=$($nucli stack current --env prod --prototype $prototype | jq .id)
+        echo "alias ${country}-p${prototype}=\"${nucli} k8s ctl ${prototype} --env prod --stack-id $current_stack_id --\""
+        echo "alias ${country}-mp${prototype}=\"${nucli} k8s ctl ${prototype} --env prod --stack-id $current_stack_id -- -n monitoring \""
     done
 
     echo ""
     echo "### Staging Aliases"
     declare actual_prototypes="${country}_staging_prototypes"
     for prototype in ${!actual_prototypes};do
-        echo "alias ${country}-s${prototype}=\"${nucli} k8s ctl ${prototype} --env staging --stack-id $staging_stack_id --\""
-        echo "alias ${country}-ms${prototype}=\"${nucli} k8s ctl ${prototype} --env staging --stack-id $staging_stack_id -- -n monitoring \""
+        declare current_stack_id=$($nucli stack current --env staging --prototype $prototype | jq .id)
+        echo "alias ${country}-s${prototype}=\"${nucli} k8s ctl ${prototype} --env staging --stack-id $current_stack_id --\""
+        echo "alias ${country}-ms${prototype}=\"${nucli} k8s ctl ${prototype} --env staging --stack-id $current_stack_id -- -n monitoring \""
     done
 
     echo ""
