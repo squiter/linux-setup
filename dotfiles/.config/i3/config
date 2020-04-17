@@ -261,6 +261,9 @@ bindsym $mod+y exec rofi-yubikey.sh
 bindsym $mod+b exec dmenu-i3-hotkeys.py
 # %%hotkey: Rofi: calc - Open calculatoR
 bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort"
+# %%hotkey: Rofi: agenda - Open next events
+bindsym $mod+Control+a exec rofi-agenda.sh
+
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2+ #increase sound volume
@@ -308,4 +311,4 @@ assign [class="^Forticlient"] 8
 
 # i3-gaps - https://gist.github.com/boreycutts/6417980039760d9d9dac0dd2148d4783
 for_window [class="^.*"] border pixel 3
-gaps inner 25
+gaps inner 0
