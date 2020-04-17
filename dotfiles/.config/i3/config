@@ -263,6 +263,8 @@ bindsym $mod+b exec dmenu-i3-hotkeys.py
 bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort"
 # %%hotkey: Rofi: agenda - Open next events
 bindsym $mod+Control+a exec rofi-agenda.sh
+# %%hotkey: Rofi: kill - Kill a program
+bindsym $mod+Control+k exec rofi-kill.sh
 
 
 # Pulse Audio controls
