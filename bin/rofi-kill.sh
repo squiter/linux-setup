@@ -11,7 +11,7 @@ function get_pids()
 function main()
 {
     local all_pids="$(get_pids)"
-    local pid_line=$( (echo "${all_pids}")  | rofi -dmenu -i -p "Kill with fire:")
+    local pid_line=$( (echo "${all_pids}")  | rofi -dmenu -i -p "🔥🔫 Kill with fire:")
 
     if [[ -z "$pid_line" ]];then
         return 0
