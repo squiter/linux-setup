@@ -37,7 +37,7 @@ spotify{
 
 # display DO NOT DISTURB/DISTURB
 do_not_disturb {
-    format = '[\?color=state [\?if=state DO NOT DISTURB|DISTURB]]'
+    format = 'DND: [\?color=state [\?if=state ON|OFF]]'
     thresholds = [(0, "darkgray"), (1, "good")]
 }
 
