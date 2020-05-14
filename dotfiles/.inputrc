@@ -34,3 +34,6 @@ set colored-stats on
 
 # Like helm show commands
 "\ex":"$(compgen -ac | fzf)\C-j"
+
+# Call navi in print mode
+"\C-n":"navi --print\C-j"
