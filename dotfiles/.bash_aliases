@@ -47,7 +47,7 @@ alias | sed -E "s/^alias ([^=]+)='(.*)'$/alias \1 \2 \$*/g; s/'\\\''/'/g;" >~/.e
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
-alias full-upgrade="sudo apt-get update && sudo apt-get -u upgrade && sudo apt autoremove"
+alias full-upgrade="sudo apt-get update && sudo apt-get -u upgrade && sudo apt autoremove && brew upgrade && snap changes"
 
 alias mledger="ledger -f ~/Dropbox/ledger/ledger.data"
 
