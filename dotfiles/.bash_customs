@@ -7,12 +7,20 @@
 # This is like a `.uniq` on the hystory!
 export HISTCONTROL=ignoreboth:erasedups
 
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
+
 # 10k lines of history
-export HISTFILESIZE=10000
+export HISTSIZE=100000
+export HISTFILESIZE=100000
 
 # Bash history handling with multiple terminals
 # This item must come before .ps1
-export PROMPT_COMMAND='history -a'
+# export PROMPT_COMMAND='history -a'
+
+# https://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # PS1 configuration
 if [ -f "$HOME/.ps1" ] ; then
