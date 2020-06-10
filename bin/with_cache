@@ -1,0 +1,21 @@
+#!/bin/bash
+
+function with_cache {
+    dir="$HOME/.cache/with_cache/"
+    cmd="${@}"
+
+    mkdir -p $dir
+    cache_file=$dir$(echo $cmd | sed -e s/\ /-/g)
+    if [[ ! -f $cache_file ]]
+    then
+        eval $cmd > $cache_file
+    fi
+    cat $cache_file
+}
+
+function clear_cache {
+    dir="$HOME/.cache/with_cache/"
+    rm -rf $dir
+}
+
+with_cache $@
