@@ -15,7 +15,7 @@ set colored-stats on
 "\C-hs":"\C-asudo \C-e"
 
 # Project find file
-"\C-x\C-f":"$(find . | fzf)\C-j"
+"\C-x\C-f":"$(find . 2>/dev/null | fzf)\C-j"
 
 # Go to project
 "\C-xo":"cd $(all_projects | fzf)\C-j"
