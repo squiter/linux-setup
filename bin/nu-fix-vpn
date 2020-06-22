@@ -1,0 +1,7 @@
+#!/bin/bash
+router=$(sudo route -n | grep ppp0 | awk '{print $2}')
+if [ -n "${router}" ]; then
+    sudo route del default gw $router
+    sudo route add -net 10.0.0.0/8 gw $router
+    sudo route add -host 52.55.100.133 gw $router
+fi
