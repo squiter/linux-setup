@@ -7,7 +7,8 @@
   title_receive_bg_color = "#5fd787"
   title_transmit_bg_color = "#5fafff"
 [keybindings]
-  broadcast_off = <Primary><Alt>o
+  broadcast_all = <Primary><Shift>a
+  broadcast_off = <Primary><Shift>o
   copy = <Alt>w
   cycle_next = <Alt>o
   cycle_prev = <Shift><Alt>o
@@ -29,9 +30,8 @@
   [[default]]
     background_color = "#ffffdd"
     background_darkness = 0.65
-    background_image = None
-    background_type = image
-    font = Inconsolata Medium 15
+    cursor_color = "#000000"
+    font = Recursive Beta 1.022 15
     foreground_color = "#000000"
     palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
     scrollback_infinite = True
@@ -39,7 +39,6 @@
   [[squiter]]
     background_color = "#100e23"
     background_darkness = 0.84
-    background_image = None
     background_type = transparent
     cursor_color = "#6bc0e8"
     cursor_shape = ibeam
