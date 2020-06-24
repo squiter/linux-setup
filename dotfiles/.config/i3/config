@@ -246,6 +246,8 @@ bindsym $mod+Contrl+c exec gsimplecal
 bindsym --release Print exec "gnome-screenshot -a -i"
 # %%hotkey: Just take a print-screen %%
 bindsym --release Shift+Print exec "gnome-screenshot -a"
+# %%hotkey: Just take a print-screen %%
+bindsym --release Control+Print exec "gnome-screenshot -w"
 
 # %%hotkey: Rofi: drun - Run applications %%
 bindsym $mod+d exec rofi -show drun -show-icons
