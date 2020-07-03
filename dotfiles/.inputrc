@@ -27,7 +27,7 @@ set colored-stats on
 "\C-xk":"pgt-kill\C-j"
 
 # Run all tests from project
-"\C-x,a":"be rspec spec\C-j"
+"\C-xa":"be rspec spec\C-j"
 
 # HH
 "\C-r": "\C-a hh \C-j"
@@ -36,4 +36,4 @@ set colored-stats on
 "\ex":"$(compgen -ac | fzf)\C-j"
 
 # Call navi in print mode
-"\C-n":"navi --print\C-j"
+"\C-xe":"navi --print\C-j"
