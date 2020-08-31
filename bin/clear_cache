@@ -1,0 +1,8 @@
+#!/bin/bash
+
+function clear_cache {
+    dir="$HOME/.cache/with_cache/"
+    rm -rf $dir
+}
+
+clear_cache

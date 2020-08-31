@@ -13,9 +13,4 @@ function with_cache {
     cat $cache_file
 }
 
-function clear_cache {
-    dir="$HOME/.cache/with_cache/"
-    rm -rf $dir
-}
-
 with_cache $@
