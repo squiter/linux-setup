@@ -5,7 +5,7 @@ set -e
 
 function get_events()
 {
-    with_cache gcalcli --nocolor agenda $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+    with_cache gcalcli --nocolor agenda
 }
 
 clear_cache(){
