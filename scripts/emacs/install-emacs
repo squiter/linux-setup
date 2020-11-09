@@ -4,15 +4,16 @@
 # sudo add-apt-repository -y ppa:cassou/emacs
 
 # sudo apt-get build-dep emacs24 -y
+# sudo apt install libxpm-dev libjpeg-dev libgif-dev libtiff-dev libgnutls28-dev
 
 cd /tmp
 
-wget http://ftpmirror.gnu.org/emacs/emacs-26.1.tar.xz
-tar -xvf emacs-26.1.tar.xz
+wget http://ftpmirror.gnu.org/emacs/emacs-27.1.tar.xz
+tar -xvf emacs-27.1.tar.xz
 
-cd emacs-26.1
+cd emacs-27.1
 ./configure
 make
 sudo make install
 
-rm -rf /tmp/emacs-26.1
+rm -rf /tmp/emacs-27.1
