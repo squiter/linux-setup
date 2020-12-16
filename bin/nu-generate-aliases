@@ -23,6 +23,12 @@ for country in $countries; do
         declare current_stack_id=$($nucli stack current --env prod --prototype $prototype | jq .id)
         echo "alias ${country}-p${prototype}=\"${nucli} k8s ctl ${prototype} --env prod --stack-id $current_stack_id --\""
         echo "alias ${country}-mp${prototype}=\"${nucli} k8s ctl ${prototype} --env prod --stack-id $current_stack_id -- -n monitoring \""
+        echo "alias ${country}-mfp${prototype}=\"${nucli} k8s ctl ${prototype} --env prod --stack-id $current_stack_id -- -n monitoring-forwarders \""
+        if [ "${country}" = "br" ]; then
+            echo "alias p${prototype}=\"${nucli} k8s ctl ${prototype} --env prod --stack-id $current_stack_id --\""
+            echo "alias mp${prototype}=\"${nucli} k8s ctl ${prototype} --env prod --stack-id $current_stack_id -- -n monitoring \""
+            echo "alias mfp${prototype}=\"${nucli} k8s ctl ${prototype} --env prod --stack-id $current_stack_id -- -n monitoring-forwarders \""
+        fi
     done
 
     echo ""
@@ -32,6 +38,12 @@ for country in $countries; do
         declare current_stack_id=$($nucli stack current --env staging --prototype $prototype | jq .id)
         echo "alias ${country}-s${prototype}=\"${nucli} k8s ctl ${prototype} --env staging --stack-id $current_stack_id --\""
         echo "alias ${country}-ms${prototype}=\"${nucli} k8s ctl ${prototype} --env staging --stack-id $current_stack_id -- -n monitoring \""
+        echo "alias ${country}-mfs${prototype}=\"${nucli} k8s ctl ${prototype} --env staging --stack-id $current_stack_id -- -n monitoring-forwarders \""
+        if [ "${country}" = "br" ];then
+            echo "alias s${prototype}=\"${nucli} k8s ctl ${prototype} --env staging --stack-id $current_stack_id --\""
+            echo "alias ms${prototype}=\"${nucli} k8s ctl ${prototype} --env staging --stack-id $current_stack_id -- -n monitoring \""
+            echo "alias mfs${prototype}=\"${nucli} k8s ctl ${prototype} --env staging --stack-id $current_stack_id -- -n monitoring-forwarders \""
+        fi
     done
 
     echo ""
