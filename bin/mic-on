@@ -1,0 +1,5 @@
+#!/bin/bash
+
+declare microphone_index=$(pacmd list-sources |rg -i 'alsa_input.*microphones_yeti' -B 1 | head -1 | cut -d' ' -f5)
+
+pactl set-source-mute $microphone_index 0
