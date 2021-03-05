@@ -28,8 +28,6 @@ else
     nu_refresh_aliases
 fi
 
-source "$NU_HOME/nucli/nu.bashcompletion"
-
 aws_clean () {
     unset AWS_DEFAULT_REGION AWS_ACCESS_KEY AWS_SECRET_KEY AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
 }
