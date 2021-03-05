@@ -1,0 +1,94 @@
+#!/usr/bin/env python3
+
+# How to use it:
+# - (Optional) Rename file to open-browser
+# - Put the script somewhere in your PATH and chmod +x open-browser
+# - Run open-browser --install, this will install a open-browser.desktop file so we can associate this script as a handler for HTTP/HTTPS links (needs desktop-file-install installed, from desktop-file-utils)
+# - Run xdg-settings set default-web-browser open-browser.desktop to set open-browser as the default browserNow to set the mappings for browser, create a file in ~/.open-browser-map.json with something like this:
+
+# {
+# 	"backoffice.nubank": "chromium",
+# 	"nubank.zendesk.com": "chromium"
+# }
+
+# And it should work! You can test by using xdg-open 'https://backoffice.nubank.com.br/shuffle/#/' and see if it opens in Chromium instead of Firefox
+
+# For those having issues with open-browser not becoming the default, you can also try:
+
+# $ xdg-mime default open-browser.desktop text/html
+# $ xdg-mime default open-browser.desktop x-scheme-handler/http
+# $ xdg-mime default open-browser.desktop x-scheme-handler/https
+
+import json
+import os
+import sys
+from pathlib import Path
+from subprocess import run
+from tempfile import TemporaryDirectory
+
+DEFAULT_BROWSER = os.environ.get("BROWSER", "firefox")
+DESKTOP_FILE_TEMPLATE = """\
+[Desktop Entry]
+
+Type=Application
+Version=1.0
+Name=Open Browser
+Comment=Open Browser according to user preference
+Exec={exec_path} %u
+Terminal=false
+Categories=Application;Network;WebBrowser;
+StartupNotify=true
+MimeType=x-scheme-handler/unknown;x-scheme-handler/about;x-scheme-handler/https;x-scheme-handler/http;text/html;text/xml;application/xhtml+xml;
+"""
+XDG_DATA_HOME = Path(os.environ.get("XDG_DATA_HOME") or "~/.local/share").expanduser()
+CONFIG_PATH = Path("~/.open-browser-map.json").expanduser()
+EXEC_PATH = Path(sys.argv[0])
+INSTALL_PATH = XDG_DATA_HOME / "applications"
+
+
+def install_desktop_file(exec_path, install_path):
+    print(f"Installing desktop for {exec_path} in {install_path}")
+
+    with TemporaryDirectory() as d, open(Path(d) / "open-browser.desktop", mode="w") as f:
+        f.write(DESKTOP_FILE_TEMPLATE.format(exec_path=exec_path))
+        f.flush()
+        run(["desktop-file-install", "--dir", install_path, f.name])
+
+    print(
+        "\nSuccess! Run command below to set default browser:\n"
+        "  $ xdg-settings set default-web-browser open-browser.desktop"
+    )
+
+
+def get_browser_for_url(url, url_map):
+    for url_pattern, browser in url_map.items():
+        if url_pattern in url:
+            return browser
+
+    return DEFAULT_BROWSER
+
+
+def get_url_map(config_path):
+    try:
+        with config_path.open() as f:
+            return json.loads(f.read())
+    except FileNotFoundError:
+        print(f"Config file not found in {config_path}", file=sys.stderr)
+        return {}
+
+
+def main(argv):
+    if "--install" in argv:
+        install_desktop_file(EXEC_PATH, INSTALL_PATH)
+    else:
+        url = argv[-1]
+        url_map = get_url_map(CONFIG_PATH)
+        browser = get_browser_for_url(url, url_map)
+
+        print(f"Selected browser: {browser}", file=sys.stderr)
+
+        run([browser, *argv[1:]])
+
+
+if __name__ == "__main__":
+    main(sys.argv)
