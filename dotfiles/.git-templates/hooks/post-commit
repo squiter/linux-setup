@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # An example hook script to log commit messages
 # as a 'daily highlight' in RescueTime Premium

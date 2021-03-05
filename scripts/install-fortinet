@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Thanks to Rene by the Debian packaging:
 # https://hadler.me/linux/forticlient-sslvpn-deb-packages/

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # ANSI color codes
 RS="\[\033[0m\]"    # reset

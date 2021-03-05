@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function with_cache {
     dir="$HOME/.cache/with_cache/"

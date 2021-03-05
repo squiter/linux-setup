@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 declare microphone_index=$(pacmd list-sources |rg -i 'alsa_input.*microphones_yeti' -B 1 | head -1 | cut -d' ' -f5)
 

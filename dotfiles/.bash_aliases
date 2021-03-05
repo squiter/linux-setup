@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Open the last directory
 alias cdlast='cd $( ls -lt | grep d | head -1 |  cut -b 49- )'

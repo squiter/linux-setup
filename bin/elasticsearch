@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 : ${ELASTICSEARCH_IMAGE:=elasticsearch:5.6}
 : ${ELASTICSEARCH_PORT:=9300}
