@@ -17,17 +17,26 @@ function nu-docker-ruby {
 }
 
 nu_refresh_aliases () {
-    nu-generate-aliases > ~/.bash_nu_aliases
-    source ~/.bash_nu_aliases
+    nu-generate-aliases > ~/.bash_nu_generated_aliases
+    source ~/.bash_nu_generated_aliases
 }
 
 # if doesn't exist, generate
-if [ -f ~/.bash_nu_aliases ]; then
-    source ~/.bash_nu_aliases
+if [ -f ~/.bash_nu_generated_aliases ]; then
+    source ~/.bash_nu_generated_aliases
 else
     nu_refresh_aliases
 fi
 
+source ~/.bash_nu_aliases 
+
 aws_clean () {
     unset AWS_DEFAULT_REGION AWS_ACCESS_KEY AWS_SECRET_KEY AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
 }
+
+# nucli configurations
+export NU_HOME="${HOME}/dev/nu"
+export NUCLI_HOME="${NU_HOME}/nucli"
+export PATH="${NUCLI_HOME}:${PATH}"
+
+source "$NU_HOME/nucli/nu.bashcompletion"

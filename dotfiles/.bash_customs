@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source .bash_aliases
+
 #########################
 # Custom configurations #
 #########################
@@ -49,9 +51,13 @@ shopt -s cdspell
 bind 'set completion-ignore-case on'
 
 # Rbenv config
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+if command -v rbenv &> /dev/null
+then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+    export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+fi
+
 
 # ActiveTCL
 export PATH="$PATH:/opt/ActiveTcl-8.6/bin"
