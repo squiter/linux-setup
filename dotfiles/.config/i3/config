@@ -273,7 +273,7 @@ bindsym $mod+Control+k exec rofi-kill.sh
 # %%hotkey: Rofi: Kaomoji
 bindsym $mod+Mod1+k exec ~/dev/code/kaomoji-rofi/kaomoji.sh
 # %%hotkey: Rofi: Emoji
-bindsym $mod+Mod1+e exec rofimoji -c
+bindsym $mod+Mod1+e exec --no-startup-id "rofi -show emoji -modi emoji"
 
 
 # Pulse Audio controls
