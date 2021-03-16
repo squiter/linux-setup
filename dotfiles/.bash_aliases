@@ -6,10 +6,6 @@ alias cdlast='cd $( ls -lt | grep d | head -1 |  cut -b 49- )'
 # List last updated files
 alias lslast='ls -lt | head'
 
-# Locaweb Alias
-alias nibbler='lpass show --password -c nibbler && ssh -i ~/.ssh/id_rsa_gateway _bsantos@nibbler0001.linux.locaweb.com.br'
-alias nibbler-ftp='lpass show --password -c nibbler && sftp -i ~/.ssh/id_rsa_gateway _bsantos@nibbler0001.linux.locaweb.com.br'
-
 # GIT
 alias gsupdate="git submodule foreach git pull origin master"
 alias gprune="git remote prune origin"
@@ -27,10 +23,6 @@ alias brails="bin/rails"
 
 # Fuck!
 alias fuck='sudo $(history -p \!\!)'
-alias fuck_product="RAILS_ENV=test bin/rake db:drop db:create db:migrate db:seed"
-
-alias recipes-up="bundle exec rails s -p 3001 | grep -v metriks | grep -v COUNT"
-alias hodor-up="bundle exec rails s -p 3002"
 
 alias all_projects="ls  ~/dev/code/ ~/dev/nu/ | grep -v /"
 
