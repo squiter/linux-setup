@@ -1,4 +1,4 @@
-# i3status configuration file.
+# py3status configuration file.
 # see "man i3status" for documentation.
 
 # It is important that this file is edited as UTF-8.
@@ -8,19 +8,19 @@
 
 # https://thomashunter.name/i3-configurator/
 general {
-    colors = true
-    interval = 20
-    output_format = "i3bar"
-    colors = true
-    color_good = "#5FD787"
-    color_degraded = "#FFD75F"
-    color_bad = "#FF5458"
+  colors = true
+  interval = 20
+  output_format = "i3bar"
+  colors = true
+  color_good = "#5FD787"
+  color_degraded = "#FFD75F"
+  color_bad = "#FF5458"
 }
 
 order += "spotify"
 order += "do_not_disturb"
-order += "static_string i3lock"
-order += "apt_updates"
+# order += "static_string i3lock"
+# order += "apt_updates"
 order += "sysdata"
 order += "static_string changing_wallpaper"
 order += "net_rate"
@@ -30,13 +30,12 @@ order += "volume_status"
 order += "time"
 
 spotify{
-        format_down = ""
+  format_down = ""
 }
 
-# display DO NOT DISTURB/DISTURB
 do_not_disturb {
-    format = '[\?color=state [\?if=state 🔕|🔔]]'
-    thresholds = [(0, "red"), (1, "good")]
+  format = '[\?color=state [\?if=state 🔕|🔔]]'
+  thresholds = [(0, "red"), (1, "good")]
 }
 
 weather_owm {
@@ -48,36 +47,36 @@ weather_owm {
 }
 
 battery_level{
-        cache_timeout = 10
+  cache_timeout = 10
 
-	format_notify_charging = "charging"
-	format_notify_discharging = "discharging {percent}"
-	hide_when_full = False
-        hide_seconds = True
-	notification = True
-	notify_low_level = True
-	blocks = ""
-	charging_character = ""
-	format = "{percent}% {icon} {time_remaining}"
-	color_charging = "#FFFFFF"
+  format_notify_charging = "charging"
+  format_notify_discharging = "discharging {percent}"
+  hide_when_full = False
+  hide_seconds = True
+  notification = True
+  notify_low_level = True
+  blocks = ""
+  charging_character = ""
+  format = "{percent}% {icon} {time_remaining}"
+  color_charging = "#FFFFFF"
 }
 
 static_string changing_wallpaper {
-	format = ""
-	on_click 1 = "exec --no-startup-id feh --randomize --bg-fill ~/Dropbox/personal/images/wallpapers-ultrawide/*"
+  format = ""
+  on_click 1 = "exec --no-startup-id feh --randomize --bg-fill ~/Dropbox/personal/images/wallpapers-ultrawide/*"
 }
 static_string i3lock {
-	format = ""
-	on_click 1 = "exec --no-startup-id i3lock -d -I 5 -i /home/bijan/Pictures/wallpapers/archlinux.png -f"
+  format = ""
+  on_click 1 = "exec --no-startup-id i3lock -d -I 5 -i /home/bijan/Pictures/wallpapers/archlinux.png -f"
 }
 net_rate {
-	format = " {down}  {up}"
-	format = "  {total}"
-	precision = 0
-	format_no_connection = ""
-        cache_timeout = 5
+  format = " {down}  {up}"
+  format = "  {total}"
+  precision = 0
+  format_no_connection = ""
+  cache_timeout = 5
 }
 time {
-	format = "   %a %e %b  %H:%M"
-	on_click 1 = "exec --no-startup-id gsimplecal"
+  format = "   %a %e %b  %H:%M"
+  on_click 1 = "exec --no-startup-id gsimplecal"
 }
