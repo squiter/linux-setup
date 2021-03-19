@@ -37,8 +37,8 @@ spotify{
 
 # display DO NOT DISTURB/DISTURB
 do_not_disturb {
-    format = 'DND: [\?color=state [\?if=state ON|OFF]]'
-    thresholds = [(0, "darkgray"), (1, "good")]
+    format = '[\?color=state [\?if=state 🔕|🔔]]'
+    thresholds = [(0, "red"), (1, "good")]
 }
 
 weather_owm {
