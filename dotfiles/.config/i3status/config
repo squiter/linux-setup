@@ -24,6 +24,7 @@ order += "do_not_disturb"
 order += "sysdata"
 order += "static_string changing_wallpaper"
 order += "net_rate"
+order += "process_status vpn"
 order += "battery_level"
 order += "weather_owm"
 order += "volume_status mic"
@@ -68,13 +69,18 @@ static_string changing_wallpaper {
 }
 
 volume_status mic {
-    format = '🎙️{percentage}%'
-    format_muted = '🎙️{percentage}%'
-    button_down = 5
-    button_mute = 1
-    button_up = 4
-    is_input = true
-    thresholds = [(0, 'bad'), (10, 'degraded'), (20, 'good')]
+  format = '🎙️{percentage}%'
+  format_muted = '🎙️{percentage}%'
+  button_down = 5
+  button_mute = 1
+  button_up = 4
+  is_input = true
+  thresholds = [(0, 'bad'), (10, 'degraded'), (20, 'good')]
+}
+
+process_status vpn {
+  format = "VPN: {icon}"
+  process = openfortivpn
 }
 
 static_string i3lock {
