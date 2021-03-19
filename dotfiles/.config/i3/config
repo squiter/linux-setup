@@ -288,6 +288,9 @@ bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# %%hotkey: Toggle microphone
+bindsym $mod+m exec mic-toggle
+
 # %%hotkey: Send the focused window to scratchpad - like minimize %%
 bindsym $mod+Shift+minus move scratchpad
 # %%hotkey: Retrieve the first scratchpad window %%

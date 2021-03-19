@@ -26,6 +26,7 @@ order += "static_string changing_wallpaper"
 order += "net_rate"
 order += "battery_level"
 order += "weather_owm"
+order += "volume_status mic"
 order += "volume_status"
 order += "time"
 
@@ -65,6 +66,17 @@ static_string changing_wallpaper {
   format = ""
   on_click 1 = "exec --no-startup-id feh --randomize --bg-fill ~/Dropbox/personal/images/wallpapers-ultrawide/*"
 }
+
+volume_status mic {
+    format = '🎙️{percentage}%'
+    format_muted = '🎙️{percentage}%'
+    button_down = 5
+    button_mute = 1
+    button_up = 4
+    is_input = true
+    thresholds = [(0, 'bad'), (10, 'degraded'), (20, 'good')]
+}
+
 static_string i3lock {
   format = ""
   on_click 1 = "exec --no-startup-id i3lock -d -I 5 -i /home/bijan/Pictures/wallpapers/archlinux.png -f"

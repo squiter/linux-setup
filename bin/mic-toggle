@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+amixer set Capture toggle
+pkill -USR1 py3status # refresh py3status
