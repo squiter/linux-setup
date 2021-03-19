@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 if pgrep -x i3 >/dev/null; then
-    /usr/bin/dunst
+    dunst_bin=$(which dunst)
+    $dunst_bin
 else
     /usr/lib/x86_64-linux-gnu/notify-osd
 fi
