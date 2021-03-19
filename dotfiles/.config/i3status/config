@@ -22,9 +22,7 @@ order += "do_not_disturb"
 order += "static_string i3lock"
 order += "apt_updates"
 order += "sysdata"
-#order += "static_string wallpaper_prev"
-#order += "static_string wallpaper"
-#order += "static_string wallpaper_next"
+order += "static_string changing_wallpaper"
 order += "net_rate"
 order += "battery_level"
 order += "weather_owm"
@@ -64,17 +62,9 @@ battery_level{
 	color_charging = "#FFFFFF"
 }
 
-static_string wallpaper_next {
-	format = ""
-	on_click 1 = "exec --no-startup-id /usr/local/bin/waffle.sh next"
-}
-static_string wallpaper {
+static_string changing_wallpaper {
 	format = ""
-	on_click 1 = "exec --no-startup-id /usr/local/bin/waffle.sh last"
-}
-static_string wallpaper_prev {
-	format = ""
-	on_click 1 = "exec --no-startup-id /usr/local/bin/waffle.sh prev"
+	on_click 1 = "exec --no-startup-id feh --randomize --bg-fill ~/Dropbox/personal/images/wallpapers-ultrawide/*"
 }
 static_string i3lock {
 	format = ""
