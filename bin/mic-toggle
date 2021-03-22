@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 amixer set Capture toggle
+notification_id="4242"
 
 if amixer get Capture | rg '\[on\]';then
     message="Turning mic on!"
@@ -9,5 +10,5 @@ else
     message="Turning mic off!"
     icon="mic-off.png"
 fi
-notify-send "Microphone Toggle" "${message}" -i "~/dev/code/linux-setup/icons/${icon}"
+dunstify "Microphone Toggle" "${message}" -i "~/dev/code/linux-setup/icons/${icon}" -r $notification_id
 pkill -USR1 py3status # refresh py3status
