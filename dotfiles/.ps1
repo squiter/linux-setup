@@ -35,5 +35,9 @@ function __prompt_command() {
         PS1+="$FGRN$ECHK "
     fi
 
+    if [[ -n "$IN_NIX_SHELL" ]]; then
+        PS1+="${FRED}🐚> "
+    fi
+
     PS1+="$FMAG\u$FCYN $ELMB \h: $FGRN$EDIR \w\$$RS$NORM "
 }
