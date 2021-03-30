@@ -38,6 +38,11 @@ awsp () {
     export AWS_DEFAULT_PROFILE=$1
     export AWS_PROFILE=$1
     export AWS_EB_PROFILE=$1
+    echo "Changed your AWS Profile to ${1}"
+}
+
+asp () {
+    awsp $(cat .aws/credentials | rg "^\[" | sed 's/\[\(.*\)\]/\1/g' | fzf)
 }
 
 # nucli configurations
