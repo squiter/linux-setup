@@ -75,7 +75,7 @@ export PATH=$HOME/dev/code/git-fuzzy/bin/:$PATH
 set_title() { printf "\e]2;$*\a"; }
 
 # editor
-export EDITOR='emacsclient -a $HOME/scripts/emacs-editor'
+export EDITOR="emacsclient -a $HOME/scripts/emacs-editor"
 export VISUAL=$EDITOR
 
 # Enable history for Erlang/Elixir
