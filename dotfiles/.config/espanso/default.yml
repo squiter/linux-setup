@@ -31,3 +31,9 @@ matches:
     vars:
       - name: "clipboard"
         type: "clipboard"
+
+  # Roamresearch texts
+  - trigger: ":qa1"
+    replace: "{{=:$|$ | }} #[[Leitner Box 1]]"
+  - trigger: ":qa0"
+    replace: "{{=:$|$ | }} #[[Leitner Box 0]]"
