@@ -1,0 +1,105 @@
+#!/usr/bin/env bash
+
+declare playground_file="play.clj"
+declare playground_repo="${HOME}/dev/code/playground-files/"
+
+playground_files_to_be_saved () {
+    find $HOME -name $playground_file
+}
+
+playground_files_to_be_restored () {
+    find $playground_repo -name "*.clj"
+}
+
+project_name_by_path () {
+    # e.g. /home/squiter/dev/nu/blueprint/src/blueprint/play.clj
+    echo $1 | cut -d'/' -f6
+}
+
+project_name_by_playground_path () {
+    # e.g. /home/squiter/dev/code/playground-files/definition.clj
+    echo $1 | cut -d'/' -f7 | cut -d'.' -f1
+}
+
+project_to_repo () {
+    local current_file="${1}"
+    local destination="${playground_repo}$(project_name_by_path ${current_file}).clj"
+
+    if ! cmp $current_file $destination
+    then
+        cp -i $current_file $destination
+    fi
+}
+
+repo_to_project () {
+    local current_file="${1}"
+    local project_name="$(project_name_by_playground_path ${current_file})"
+    local project_from="${2}"
+    local destination_dir="${HOME}/dev/${project_from}/${project_name}/src/${project_name}"
+    local destination="${destination_dir}/play.clj"
+
+    if [ -f "${destination_dir}" ]
+    then
+        if ! cmp $current_file $destination
+        then
+            cp -i $current_file $destination
+        fi
+    fi
+}
+
+saving_files () {
+    echo "🌀 Getting playground files to be saved..."
+    for file in $(playground_files_to_be_saved)
+    do
+        check_if_sync_is_needed $file
+        project_to_repo $file
+    done
+}
+
+restoring_files () {
+    echo "🌀 Getting playground files to be restored..."
+    for file in $(playground_files_to_be_restored)
+    do
+        check_if_sync_is_needed $file
+        repo_to_project $file "nu"
+    done
+}
+
+file_needs_to_be_synced () {
+    local path="${1}"
+    if [ ! -f $path ]
+    then
+        echo "⚠️ $path need to be synced!"
+    fi
+}
+
+check_if_sync_is_needed () {
+    local current_file="${1}"
+    if echo $current_file | rg playground-files >/dev/null
+    then
+        local project_name="$(project_name_by_playground_path ${current_file})"
+        local project_from="${2:-nu}"
+        local path="${HOME}/dev/${project_from}/${project_name}/src/${project_name}/play.clj"
+    else
+        local project_name="$(project_name_by_path ${current_file})"
+        local path="${playground_repo}${project_name}.clj"
+    fi
+    file_needs_to_be_synced $path
+}
+
+today () {
+    date -u +"%Y%m%d"
+}
+
+saving_files
+restoring_files
+cd $playground_repo >/dev/null
+if ! git status | rg "nothing to commit" > /dev/null
+then
+    echo "Commiting new files..."
+    git add .
+    git commit -m "🤖 $(today) - Adding new files"
+    git push origin master
+fi
+echo "✔ done!"
+cd - >/dev/null
