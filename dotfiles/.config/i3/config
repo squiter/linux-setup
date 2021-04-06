@@ -309,14 +309,17 @@ bindsym $mod+Control+Left workspace prev
 # Startup
 # moved to ~/.xinitrc
 # exec compton
-exec dropbox start
-exec ~/scripts/set-keyboard
+# Dropbox start was fixed when I use NixOS
+# exec dropbox start
+# keyboard configuration was moved to my NixOS config
+# exec ~/scripts/set-keyboard
 exec flock -w 0 /tmp/rescuetime.lock -c "rescuetime"
-exec flock -w 0 /tmp/sound-switcher.lock -c "indicator-sound-switcher"
+# exec flock -w 0 /tmp/sound-switcher.lock -c "indicator-sound-switcher"
 exec flock -w 0 /tmp/caffeine.lock -c "caffeine-indicator"
-exec flock -w 0 /tmp/autokey.lock -c "autokey"
-exec nm-applet
-exec monitor-just-hdmi
+# exec flock -w 0 /tmp/autokey.lock -c "autokey"
+# exec nm-applet
+# exec monitor-just-hdmi
+exec feh --randomize --bg-fill ~/Dropbox/personal/images/wallpapers-ultrawide/*
 
 # Assign applications to your workspaces
 assign [class="^Franz"] 10
