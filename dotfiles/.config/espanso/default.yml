@@ -37,3 +37,5 @@ matches:
     replace: "{{=:$|$ | }} #[[Leitner Box 1]]"
   - trigger: ":qa0"
     replace: "{{=:$|$ | }} #[[Leitner Box 0]]"
+  - trigger: ":a2p"
+    replace: "Added [[$|$]] to my #pocket, recommended by "
