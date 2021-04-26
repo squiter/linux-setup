@@ -6,6 +6,8 @@
 matches:
   - trigger: ":numail"
     replace: "brunno.santos@nubank.com.br"
+  - trigger: ":kindle"
+    replace: "squiter85_nkfeec@kindle.com"
 
   # Dates
   - trigger: ":today"
