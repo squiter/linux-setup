@@ -14,11 +14,11 @@
     monitor = 0
     follow = mouse
     sticky_history = yes
-    line_height = 0
-    separator_height = 2
+    line_height = 1
+    separator_height = 1
     padding = 8
     horizontal_padding = 8
-    separator_color = "#C991E1"
+    separator_color = "#B362FF"
     startup_notification = false
     # https://github.com/knopwob/dunst/issues/26#issuecomment-36159395
     icon_position = left
@@ -35,16 +35,16 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#121212"
+    background = "#1E1E3F"
     foreground = "#EEEEEE"
     timeout = 5
 
 [urgency_normal]
-    background = "#121212"
+    background = "#1E1E3F"
     foreground = "#EEEEEE"
     timeout = 20
 
 [urgency_critical]
-    background = "#121212"
+    background = "#1E1E3F"
     foreground = "#EEEEEE"
     timeout = 0

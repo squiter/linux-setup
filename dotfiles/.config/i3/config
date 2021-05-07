@@ -204,11 +204,11 @@ mode "resize" {
 
 # https://thomashunter.name/i3-configurator/
 # class                 border  bground text    indicator child_border
-client.focused          #A6B3CC #5FAFFF #2B2942 #C991E1   #5FAFFF
-client.focused_inactive #3A3A3A #565575 #EEEEEE #565575   #565575
-client.unfocused        #3A3A3A #121212 #808080 #292D2E   #121212
-client.urgent           #2F343A #875FD7 #EEEEEE #875FD7   #875FD7
-client.placeholder      #121212 #121212 #EEEEEE #121212   #121212
+client.focused          #A6B3CC #B362FF #2B2942 #FAD000   #B362FF
+client.focused_inactive #494685 #565575 #EEEEEE #565575   #565575
+client.unfocused        #494685 #1E1E3F #808080 #292D2E   #1E1E3F
+client.urgent           #2F343A #A599E9 #EEEEEE #A599E9   #A599E9
+client.placeholder      #1E1E3F #1E1E3F #EEEEEE #1E1E3F   #1E1E3F
 
 client.background       #EEEEEE
 
@@ -224,15 +224,15 @@ bar {
         font pango:Inconsolata 13
 
         colors {
-            background #121212
+            background #1E1E3F
             statusline #EEEEEE
             separator  #808080
 
-            focused_workspace  #2B2942 #5FAFFF #100E23
-            active_workspace   #2B2942 #3A3A3A #EEEEEE
-            inactive_workspace #2B2942 #3A3A3A #808080
-            urgent_workspace   #2B2942 #875FD7 #EEEEEE
-            binding_mode       #2B2942 #875FD7 #EEEEEE
+            focused_workspace  #2B2942 #B362FF #100E23
+            active_workspace   #2B2942 #494685 #EEEEEE
+            inactive_workspace #2B2942 #494685 #808080
+            urgent_workspace   #2B2942 #A599E9 #EEEEEE
+            binding_mode       #2B2942 #A599E9 #EEEEEE
       }
 }
 

@@ -12,9 +12,9 @@ general {
   interval = 20
   output_format = "i3bar"
   colors = true
-  color_good = "#5FD787"
-  color_degraded = "#FFD75F"
-  color_bad = "#FF5458"
+  color_good = "#A5FF90"
+  color_degraded = "#FAD000"
+  color_bad = "#FF628C"
 }
 
 order += "spotify"

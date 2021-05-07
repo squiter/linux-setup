@@ -1,5 +1,5 @@
 configuration {
-  theme: "flat-challenger";
+  theme: "flat-purple";
   modi: "window,drun,run,ssh";
   kb-mode-next: "Alt+Tab";
   kb-mode-previous: "Alt+Control+Tab";
