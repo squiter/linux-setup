@@ -1,0 +1,6 @@
+#!/usr/bin/env bb
+
+(def custom-data-readers {'nu/prototypes-for identity
+                          'nu/workload-for identity})
+
+(edn/read-string {:readers (merge default-data-readers custom-data-readers)} (apply str *input*))

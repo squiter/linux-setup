@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+bb -i -f ~/scripts/sanitize-definition
