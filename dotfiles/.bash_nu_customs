@@ -51,3 +51,14 @@ export NUCLI_HOME="${NU_HOME}/nucli"
 export PATH="${NUCLI_HOME}:${PATH}"
 
 source "$NU_HOME/nucli/nu.bashcompletion"
+
+# AWS Credentials Refresh when opening the Terminal
+are_aws_credentials_fresh() {
+    last_update=$(stat --format '%Y' ~/.aws/credentials)
+    now=$(date +'%s')
+    delta=$((now - last_update))
+    return $((delta > 43200))
+}
+if [[ $- == *i* ]]; then
+    are_aws_credentials_fresh || nu aws credentials refresh
+fi
