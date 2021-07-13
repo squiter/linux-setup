@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
+
+function get_logins()
+{
+    bw list items | jq 'map(.name)' | rg "\"" | sed 's#[", ]##g'
+}
+
+function main()
+{
+    local all_logins="$(get_logins)"
+    if selected_login=$( (echo "${all_logins}" ) \
+                                | rofi -dmenu \
+                                       -i \
+                                       -p "🔐 Bitwarden: Select your login" \
+                                       -kb-custom-1 "Alt+t" \
+                                       -mesg "Alt+t to copy 2FA code"); then
+        bw get password $selected_login | xclip -selection clipboard
+    else
+        rofi_exit_code=$?
+        case $rofi_exit_code in
+            10) bw get totp $selected_login | xclip -selection clipboard;;
+            *) exit $rofi_exit_code;;
+        esac
+    fi
+}
+
+if [ -f "$HOME/.bash_secrets" ] ; then
+    source "$HOME/.bash_secrets"
+fi
+
+main

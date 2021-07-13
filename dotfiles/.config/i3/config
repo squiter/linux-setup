@@ -269,7 +269,7 @@ bindsym $mod+o exec rofi-add-task.sh
 # %%hotkey: Rofi: last-pass - Copy a password to clipboard %%
 bindsym $mod+Control+p exec rofi-last-pass.sh
 # %%hotkey: Rofi: Bitwarden - Copy a password to clipboard %%
-bindsym $mod+p exec bwmenu
+bindsym $mod+p exec rofi-bw
 # %%hotkey: Rofi: yubikey - Copy a two-factor code to clipboard %%
 bindsym $mod+y exec rofi-yubikey.sh
 # %%hotkey: Rofi: keys - Show all current keybinds %%
