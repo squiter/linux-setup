@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source .bash_aliases
+source $HOME/.bash_aliases
 
 #########################
 # Custom configurations #
@@ -97,8 +97,8 @@ if [ -f "$HOME/scripts/json_value" ]; then
 fi
 
 # Exercism
-if [ -f ~/.config/exercism/exercism_completion.bash ]; then
-    source ~/.config/exercism/exercism_completion.bash
+if [ -f $HOME/.config/exercism/exercism_completion.bash ]; then
+    source $HOME/.config/exercism/exercism_completion.bash
 fi
 
 # Fix to use Dunst instead norify-osd in i3
