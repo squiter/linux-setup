@@ -44,6 +44,10 @@ if [ -f "$HOME/.bash_nu_customs" ] ; then
     source "$HOME/.bash_nu_customs"
 fi
 
+if [ -f "$HOME/.bash_secrets" ] ; then
+    source "$HOME/.bash_secrets"
+fi
+
 export CDPATH=".:~/:~/Downloads:~/dev/code:~/dev/nu"
 
 # Ignore case
