@@ -4,3 +4,4 @@
                           'nu/workload-for identity})
 
 (edn/read {:readers (merge default-data-readers custom-data-readers)} *in*)
+#_(edn/read {:default tagged-literal} *in*)
