@@ -52,3 +52,5 @@
   user = squiter
 [rerere]
   enabled = true
+[credential "https://github.com"]
+	helper = !gh auth git-credential
