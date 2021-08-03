@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-source $HOME/.bash_aliases
+source_if_exists() {
+    if [ -f "$1" ] ; then
+        source "$1"
+    fi
+}
 
 #########################
 # Custom configurations #
@@ -24,28 +28,14 @@ export HISTFILESIZE=100000
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-# PS1 configuration
-if [ -f "$HOME/.ps1" ] ; then
-    source "$HOME/.ps1"
-fi
-
-# get api keys and other secrets
-if [ -f "$HOME/.bash_secrets" ] ; then
-    source "$HOME/.bash_secrets"
-fi
+source_if_exists "$HOME/.ps1"
+source_if_exists "$HOME/.bash_secrets"
+source_if_exists "$HOME/.bash_aliases"
+source_if_exists "$HOME/.bash_nu_customs"
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
-fi
-
-# It includes my nubank custom configurations
-if [ -f "$HOME/.bash_nu_customs" ] ; then
-    source "$HOME/.bash_nu_customs"
-fi
-
-if [ -f "$HOME/.bash_secrets" ] ; then
-    source "$HOME/.bash_secrets"
 fi
 
 export CDPATH=".:~/:~/Downloads:~/dev/code:~/dev/nu"
@@ -92,14 +82,10 @@ eval "$(ntfy shell-integration)"
 export GPGKEY=A86BDBC5
 
 # Bash json parser
-if [ -f "$HOME/scripts/json_value" ]; then
-    source "$HOME/scripts/json_value"
-fi
+source_if_exists "$HOME/scripts/json_value"
 
 # Exercism
-if [ -f $HOME/.config/exercism/exercism_completion.bash ]; then
-    source $HOME/.config/exercism/exercism_completion.bash
-fi
+source_if_exists $HOME/.config/exercism/exercism_completion.bash
 
 # Fix to use Dunst instead norify-osd in i3
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
