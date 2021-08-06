@@ -29,9 +29,6 @@ set colored-stats on
 # Run all tests from project
 "\C-xa":"be rspec spec\C-j"
 
-# HH
-# "\C-r": "\C-a hh \C-j"
-
 # Like helm show commands
 "\ex":"$(compgen -ac | fzf)\C-j"
 
