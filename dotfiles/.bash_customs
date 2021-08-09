@@ -31,7 +31,6 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 source_if_exists "$HOME/.ps1"
 source_if_exists "$HOME/.bash_secrets"
 source_if_exists "$HOME/.bash_aliases"
-source_if_exists "$HOME/.bash_nu_customs"
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
@@ -141,3 +140,15 @@ bind '"\C-xn": " \C-b\C-k \C-u`__call_navi`\e\C-e\C-a\C-y\C-h\C-e\e \C-y\ey\C-x\
 # mcfly configuration
 export MCFLY_FUZZY=true
 eval "$(mcfly init bash)"
+
+# AWS Helpers
+awsp () {
+    export AWS_DEFAULT_PROFILE=$1
+    export AWS_PROFILE=$1
+    export AWS_EB_PROFILE=$1
+    echo "Changed your AWS Profile to ${1}"
+}
+
+asp () {
+    awsp $(cat .aws/credentials | rg "^\[" | sed 's/\[\(.*\)\]/\1/g' | fzf)
+}

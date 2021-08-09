@@ -34,17 +34,6 @@ aws_clean () {
     unset AWS_DEFAULT_REGION AWS_ACCESS_KEY AWS_SECRET_KEY AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
 }
 
-awsp () {
-    export AWS_DEFAULT_PROFILE=$1
-    export AWS_PROFILE=$1
-    export AWS_EB_PROFILE=$1
-    echo "Changed your AWS Profile to ${1}"
-}
-
-asp () {
-    awsp $(cat .aws/credentials | rg "^\[" | sed 's/\[\(.*\)\]/\1/g' | fzf)
-}
-
 # nucli configurations
 export NU_HOME="${HOME}/dev/nu"
 export NUCLI_HOME="${NU_HOME}/nucli"
