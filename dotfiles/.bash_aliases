@@ -24,7 +24,7 @@ alias brails="bin/rails"
 # Fuck!
 alias fuck='sudo $(history -p \!\!)'
 
-alias all_projects="ls  ~/dev/code/ ~/dev/nu/ | grep -v / | grep ."
+alias all_projects="ls  ~/dev/*/ | grep -v / | grep ."
 
 alias calendar-indicator="/opt/extras.ubuntu.com/calendar-indicator/bin/calendar-indicator &"
 
