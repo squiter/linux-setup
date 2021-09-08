@@ -58,6 +58,9 @@ export PATH="$PATH:/opt/ActiveTcl-8.6/bin"
 # NPM
 export PATH=$HOME/node_modules/.bin/:$PATH
 
+# NPM NixOS
+export PATH="$PATH:$HOME/.npm-global/bin"
+
 # pip --user
 export PATH=$HOME/.local/bin:$PATH
 
