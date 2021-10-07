@@ -2,8 +2,16 @@
 
 for item in $(ls -a); do
     if [ -f $item ];then
-        ln -sf $(pwd)/$item ~/$item
+        if [ ! -f ~/$item ]; then
+            ln -sf $(pwd)/$item ~/$item
+        else
+            echo "file ${item} already installed..."
+        fi
     elif [ -d $item ]; then
-        cp -fas $(pwd)/$item ~/
+        if [ ! -d ~/$item ]; then
+            cp -fas $(pwd)/$item ~/
+        else
+            echo "directory ${item} already installed..."
+        fi
     fi
 done
