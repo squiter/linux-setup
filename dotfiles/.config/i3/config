@@ -266,6 +266,8 @@ bindsym $mod+d exec rofi -show drun -show-icons
 bindsym $mod+Tab exec rofi -show window -show-icons
 # %%hotkey: Rofi: add-task - Add a task in org-mode %%
 bindsym $mod+o exec "~/dev/code/rofi-todoist/rofi-todoist fq"
+# %%hotkey: Rofi: tasks - Todoist Rofi %%
+bindsym $mod+t exec "~/dev/code/rofi-todoist/rofi-todoist"
 # %%hotkey: Rofi: last-pass - Copy a password to clipboard %%
 bindsym $mod+Control+p exec rofi-last-pass.sh
 # %%hotkey: Rofi: Bitwarden - Copy a password to clipboard %%
