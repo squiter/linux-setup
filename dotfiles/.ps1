@@ -22,6 +22,7 @@ ECHK="✔️"
 EERR="💢"
 ESHU="🔀"
 ELMB="λ"
+EARL="➡"
 
 export PROMPT_COMMAND=__prompt_command  # Func to gen PS1 after CMDs
 
@@ -39,5 +40,5 @@ function __prompt_command() {
         PS1+="${FRED}🐚> "
     fi
 
-    PS1+="$FMAG\u$FCYN $ELMB \h: $FGRN$EDIR \w\$$RS$NORM "
+    PS1+="$FMAG$ELMB$FCYN:$FGRN[$EDIR \w] $EARL$RS$NORM "
 }
