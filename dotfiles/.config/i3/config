@@ -280,6 +280,8 @@ bindsym $mod+b exec dmenu-i3-hotkeys.py
 bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort"
 # %%hotkey: Rofi: kill - Kill a program
 bindsym $mod+Control+k exec rofi-kill.sh
+# %%hotkey: Rofi: Unipicker - A unicode picker
+bindsym $mod+u exec "unipicker --command 'rofi -dmenu'"
 
 # %%hotkey: Rofi: Kaomoji
 bindsym $mod+Mod1+k exec ~/dev/code/kaomoji-rofi/kaomoji.sh
