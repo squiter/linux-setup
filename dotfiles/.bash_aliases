@@ -57,3 +57,5 @@ alias put_clock="while sleep 1;do tput sc;tput cup 0 $(($(tput cols)-29));date;t
 alias jet="clj -Sdeps '{:deps {borkdude/jet {:mvn/version \"0.0.12\"}}}' -m jet.main"
 
 alias open="xdg-open"
+
+alias n='navi --best-match --query '
