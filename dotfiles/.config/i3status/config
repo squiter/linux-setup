@@ -33,6 +33,10 @@ order += "volume_status"
 order += "weather_owm"
 order += "time"
 
+bluetooth{
+  on_click 1 = "exec --no-startup-id blueman-manager"
+}
+
 spotify{
   format_down = "🔇"
   button_next = 4
