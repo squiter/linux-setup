@@ -356,4 +356,4 @@ assign [class="^Forticlient"] $ws8
 
 # i3-gaps - https://gist.github.com/boreycutts/6417980039760d9d9dac0dd2148d4783
 for_window [class="^.*"] border pixel 3
-gaps inner 0
+gaps inner 8

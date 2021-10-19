@@ -24,15 +24,21 @@ order += "do_not_disturb"
 order += "sysdata"
 order += "static_string changing_wallpaper"
 order += "net_rate"
-order += "process_status vpn"
+order += "online_status"
+# order += "process_status vpn"
 order += "battery_level"
-order += "weather_owm"
+order += "bluetooth"
 order += "volume_status mic"
 order += "volume_status"
+order += "weather_owm"
 order += "time"
 
 spotify{
-  format_down = ""
+  format_down = "🔇"
+  button_next = 4
+  button_play_pause = 1
+  button_previous = 5
+  format = "🎵 {title} by {artist}"
 }
 
 do_not_disturb {
