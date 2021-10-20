@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+declare username="histre@brunno.me"
+declare password="${HISTRE_PASSWORD}"
+
+if [[ -z "${HISTRE_PASSWORD}" ]]; then
+    stty -echo
+    printf "Histre password: "
+    read password
+    stty echo
+fi
+
+declare host="https://histre.com/api/v1"
+
+function get_access_token() {
+    curl -H "Content-Type: application/json" \
+         -XPOST "${host}/auth_token/" \
+         -s \
+         -d "{\"username\": \"${username}\", \"password\": \"${password}\"}"\
+        | jq '.data.access' \
+        | sed 's#"##g'
+}
+
+declare access_token=$(get_access_token)
+
+function get_notes() {
+    curl -H "Content-Type: application/json" \
+         -H "Authorization: Bearer ${access_token}" \
+         "${host}/note/" \
+         -s \
+        | jq '.data'
+}
+
+get_notes
