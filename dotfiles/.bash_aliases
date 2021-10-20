@@ -59,3 +59,4 @@ alias jet="clj -Sdeps '{:deps {borkdude/jet {:mvn/version \"0.0.12\"}}}' -m jet.
 alias open="xdg-open"
 
 alias n='navi --best-match --query '
+alias np='navi --print --best-match --query '
