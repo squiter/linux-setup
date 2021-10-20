@@ -60,3 +60,5 @@ alias open="xdg-open"
 
 alias n='navi --best-match --query '
 alias np='navi --print --best-match --query '
+
+alias ls='lsd'
