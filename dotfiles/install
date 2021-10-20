@@ -1,17 +1,48 @@
 #!/usr/bin/env bash
+# ANSI color codes
+RS="\e[0m"    # reset
+HC="\e[1m"    # hicolor
+UL="\e[4m"    # underline
+INV="\e[7m"   # inverse background and foreground
+FBLK="\e[30m" # foreground black
+FRED="\e[31m" # foreground red
+FGRN="\e[32m" # foreground green
+FYEL="\e[33m" # foreground yellow
+FBLE="\e[34m" # foreground blue
+FMAG="\e[35m" # foreground magenta
+FCYN="\e[36m" # foreground cyan
+FWHT="\e[37m" # foreground white
+BOLD="\e[1m"  # Set Bold
+NORM="\e[0m"
 
-for item in $(ls -a); do
+echo -e "${FGRN}Running for dotfiles...${RS}"
+for item in $(ls -A); do
     if [ -f $item ];then
         if [ ! -f ~/$item ]; then
+            echo -e "${FGRN}Creating alias for ${BOLD}${item}${RS}"
             ln -sf $(pwd)/$item ~/$item
         else
-            echo "file ${item} already installed..."
+            echo -e "file ${item} already installed..."
         fi
     elif [ -d $item ]; then
         if [ ! -d ~/$item ]; then
+            echo -e "${FGRN}Creating alias for ${BOLD}${item}${RS}"
             cp -fas $(pwd)/$item ~/
         else
             echo "directory ${item} already installed..."
         fi
     fi
 done
+
+echo -e "${FGRN}Running for bin...${RS}"
+cd ../bin/ >/dev/null
+for item in $(ls -A); do
+    if [ ! -f ~/bin/$item ]; then
+        echo -e "${FGRN}Creating alias for ${BOLD}${item}${RS}"
+        ln -sf $(pwd)/$item ~/bin/$item
+    else
+        echo -e "file ${item} already installed..."
+    fi
+done
+cd - >/dev/null
+echo -e "${FGRN}Installation completed ${RS}"
