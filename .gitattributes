@@ -1,1 +1,2 @@
 dotfiles/.ngrok2/* filter=git-crypt diff=git-crypt
+dotfiles/.bash_secrets filter=git-crypt diff=git-crypt
