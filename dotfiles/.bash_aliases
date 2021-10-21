@@ -62,3 +62,5 @@ alias n='navi --best-match --query '
 alias np='navi --print --best-match --query '
 
 alias ls='lsd'
+
+alias use='nix-shell -p '
