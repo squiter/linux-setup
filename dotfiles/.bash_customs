@@ -77,9 +77,6 @@ export VISUAL=$EDITOR
 # Enable history for Erlang/Elixir
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-# Notifies when a log shell command ends
-eval "$(ntfy shell-integration)"
-
 # Set my key as default
 export GPGKEY=A86BDBC5
 
@@ -155,3 +152,9 @@ awsp () {
 asp () {
     awsp $(cat .aws/credentials | rg "^\[" | sed 's/\[\(.*\)\]/\1/g' | fzf)
 }
+
+# direnv
+eval "$(direnv hook bash)"
+
+# Notifies when a log shell command ends (this should ran after direnv!)
+eval "$(ntfy shell-integration)"
