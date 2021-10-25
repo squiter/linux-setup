@@ -230,7 +230,7 @@ bar {
         # pip install py3status
         status_command py3status
         # tray_output primary
-        font pango:Iosevka 13
+        font pango:Iosevka Nerd Font 13
 
         colors {
             background #1E1E3F
