@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+todoist --csv cl -f today \
+    | sed 's/#//' \
+    | sed 's#[0-9]\{2\}\/[0-9]\{2\}\/[0-9]\{2\}(.*)\ ##' \
+    | awk -F, '{ print $2 " [["$3"]] " $4 }' \
+    | sort \
+    | xclip -selection clipboard
+
+echo "✅ Tasks copied to clipboard!"
