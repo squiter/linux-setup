@@ -158,3 +158,6 @@ eval "$(direnv hook bash)"
 
 # Notifies when a log shell command ends (this should ran after direnv!)
 eval "$(ntfy shell-integration)"
+
+# FinBits custom Configurations
+source_if_exists $HOME/.bash_finbits_customs
