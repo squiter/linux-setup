@@ -729,8 +729,8 @@ key_bindings:
   #- { key: L,         mods: Control, mode: ~Vi|~Search, chars: "\x0c"          }
   - { key: PageUp,                   mode: ~Alt,        action: ScrollPageUp,  }
   - { key: PageDown,                 mode: ~Alt,        action: ScrollPageDown }
-  - { key: P,         mods: Control, mode: ~Alt,        action: ScrollLineUp,  }
-  - { key: N,         mods: Control, mode: ~Alt,        action: ScrollLineDown }
+  - { key: P,         mods: Alt,     mode: ~Alt,        action: ScrollLineUp,  }
+  - { key: N,         mods: Alt,     mode: ~Alt,        action: ScrollLineDown }
   - { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop,   }
   - { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
 
