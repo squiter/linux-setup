@@ -252,13 +252,9 @@ bar {
 # %%hotkey: Run gsimplecal %%
 bindsym $mod+Contrl+c exec gsimplecal
 # %%hotkey: Open print-screen dialog %%
-bindsym --release Print exec "gnome-screenshot -a -i"
+bindsym --release Print exec "flameshot gui"
 # %%hotkey: Just take a print-screen %%
-bindsym --release Shift+Print exec "gnome-screenshot -a"
-# %%hotkey: Just take a print-screen of selected window %%
-bindsym --release Control+Print exec "gnome-screenshot -w"
-# %%hotkey: Just take a print-screen %%
-bindsym --release Control+Shift+Print exec "gnome-screenshot"
+bindsym --release Shift+Print exec "flameshot screen -p ~/Dropbox/personal/images/Screenshots/"
 
 # %%hotkey: Rofi: drun - Run applications %%
 bindsym $mod+d exec rofi -show drun -show-icons
@@ -337,6 +333,8 @@ exec flock -w 0 /tmp/caffeine.lock -c "caffeine-indicator"
 exec feh --randomize --bg-fill ~/Dropbox/personal/images/wallpapers-ultrawide/*
 
 exec --no-startup-id greenclip daemon>/dev/null
+
+exec flock -w 0 /tmp/flameshot.lock -c "flameshot"
 
 # Assign applications to your workspaces
 # TODO: those assignments didn't work :(
