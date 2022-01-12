@@ -150,7 +150,7 @@ awsp () {
 }
 
 asp () {
-    awsp $(cat .aws/credentials | rg "^\[" | sed 's/\[\(.*\)\]/\1/g' | fzf)
+    awsp $(cat ~/.aws/credentials | rg "^\[" | sed 's/\[\(.*\)\]/\1/g' | fzf)
 }
 
 # direnv
