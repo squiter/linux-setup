@@ -126,7 +126,6 @@ bindsym $mod+Mod1+l exec i3lock-fancy -pg
 set $ws1 "1: Com"
 set $ws2 "2: Web"
 set $ws3 "3: Prg"
-set $ws8 "8: VPN"
 set $ws9 "9: Mus"
 set $ws10 "10: Tel"
 
@@ -146,7 +145,7 @@ bindsym $mod+6 workspace 6
 # %%hotkey: Switch to workspace 7 %%
 bindsym $mod+7 workspace 7
 # %%hotkey: Switch to workspace 8 %%
-bindsym $mod+8 workspace $ws8
+bindsym $mod+8 workspace 8
 # %%hotkey: Switch to workspace 9 %%
 bindsym $mod+9 workspace $ws9
 # %%hotkey: Switch to workspace 10 %%
