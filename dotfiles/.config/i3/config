@@ -349,11 +349,6 @@ assign [instance="^telegram-desktop$"] $ws10
 assign [class="(?i)firefox"] $ws2
 assign [instance="(?i)google-chrome"] $ws2
 
-# Those are software that I don't use anymore
-assign [class="^Franz"] $ws10
-assign [class="^Fortinet"] $ws8
-assign [class="^Forticlient"] $ws8
-
 # i3-gaps - https://gist.github.com/boreycutts/6417980039760d9d9dac0dd2148d4783
 for_window [class="^.*"] border pixel 3
 gaps inner 8
