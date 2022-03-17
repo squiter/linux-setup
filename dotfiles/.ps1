@@ -16,8 +16,10 @@ FWHT="\[\033[37m\]" # foreground white
 BOLD="\[\e[1m\]"    # Set Bold
 NORM="\[\e[0m\]"
 
+BBLE="\[\e[44m\]" # Background Blue
 BPURP="\[\e[104m\]" # Background Purple
 FPURP="\[\e[94m\]" # Foreground Purple
+
 
 # EMOJIS
 EDIR="📂"
@@ -38,19 +40,19 @@ function __prompt_command() {
 
 
     if [ $EXIT != 0 ]; then
-        PS1+="$FRED$EERR"
+        PS1+="$FMAG$EERR"
     else
         PS1+="$FGRN$ECHK"
     fi
 
-    PS1+="${FPURP}${DEGIN}$NORM${BPURP}"
+    PS1+="${FBLE}${DEGIN}$NORM${BBLE}"
 
     if [[ -n "$IN_NIX_SHELL" ]]; then
-        PS1+="${FRED}🐚> "
+        PS1+="${FMAG}🐚> "
     fi
 
-    PS1+="$NORM${BPURP}"
+    PS1+="$NORM${BBLE}"
 
-    PS1+="$ELMB:[$EDIR \w] $EARL "
-    PS1+="$NORM$FPURP$DEGOUT$NORM"
+    PS1+="$FWHT$ELMB$FWHT:$FCYN[$BOLD$EDIR \w] $EARL "
+    PS1+="$NORM$FBLE$DEGOUT$NORM"
 }
