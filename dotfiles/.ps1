@@ -16,6 +16,9 @@ FWHT="\[\033[37m\]" # foreground white
 BOLD="\[\e[1m\]"    # Set Bold
 NORM="\[\e[0m\]"
 
+BPURP="\[\e[104m\]" # Background Purple
+FPURP="\[\e[94m\]" # Foreground Purple
+
 # EMOJIS
 EDIR="📂"
 ECHK="✔️"
@@ -24,21 +27,30 @@ ESHU="🔀"
 ELMB="λ"
 EARL="➡"
 
+DEGOUT="▒░"
+DEGIN="░▒▓"
+
 export PROMPT_COMMAND=__prompt_command  # Func to gen PS1 after CMDs
 
 function __prompt_command() {
     local EXIT="$?"             # This needs to be first
     PS1="\n$BOLD"
 
+
     if [ $EXIT != 0 ]; then
-        PS1+="$FRED$EERR "
+        PS1+="$FRED$EERR"
     else
-        PS1+="$FGRN$ECHK "
+        PS1+="$FGRN$ECHK"
     fi
+
+    PS1+="${FPURP}${DEGIN}$NORM${BPURP}"
 
     if [[ -n "$IN_NIX_SHELL" ]]; then
         PS1+="${FRED}🐚> "
     fi
 
-    PS1+="$FMAG$ELMB$FCYN:$FGRN[$EDIR \w] $EARL$RS$NORM "
+    PS1+="$NORM${BPURP}"
+
+    PS1+="$ELMB:[$EDIR \w] $EARL "
+    PS1+="$NORM$FPURP$DEGOUT$NORM"
 }
