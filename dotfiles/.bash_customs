@@ -159,5 +159,11 @@ eval "$(direnv hook bash)"
 # Notifies when a log shell command ends (this should ran after direnv!)
 eval "$(ntfy shell-integration)"
 
+# FZF Tab Completion: https://github.com/lincheney/fzf-tab-completion
+if [ -f "$HOME/dev/code/fzf-tab-completion/bash/fzf-bash-completion.sh" ] ; then
+    source "$HOME/dev/code/fzf-tab-completion/bash/fzf-bash-completion.sh"
+    bind -x '"\t": fzf_bash_completion'
+fi
+
 # FinBits custom Configurations
 source_if_exists $HOME/.bash_finbits_customs
