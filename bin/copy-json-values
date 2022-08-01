@@ -3,6 +3,6 @@
 cat /dev/stdin | jq 'to_entries | .[] | [.key, .value] | @sh' | tr -d "'" | tr -d '"' |
     # https://stackoverflow.com/questions/6883363/read-user-input-inside-a-loop
     while read -r key value; do
-        echo ${value} | xclip -selection clipboard
+        echo ${value} | copy
         read -u 1 -p "${key} copied! Press any key to copy the next field..."
     done
