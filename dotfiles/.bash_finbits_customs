@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
 source_if_exists "$HOME/.config/ham/completion/bash/_ham"
+source_if_exists "$HOME/Library/Application Support/com.Finbits.Ham/completion/bash/_ham"
 
 alias logs='aws logs tail $(aws logs describe-log-groups | jq -r ".logGroups[].logGroupName" | fzf) --follow'
