@@ -23,8 +23,9 @@ FPURP="\[\e[94m\]" # Foreground Purple
 
 # EMOJIS
 EDIR="📂"
-ECHK="✔️"
-EERR="💢"
+ECHK="✔️ "
+EERR="💢 "
+EPOO="💩 "
 ESHU="🔀"
 ELMB="λ"
 EARL="➡"
@@ -40,19 +41,19 @@ function __prompt_command() {
 
 
     if [ $EXIT != 0 ]; then
-        PS1+="$FMAG$EERR"
+        PS1+="$FMAG$EPOO"
     else
-        PS1+="$FGRN$ECHK"
+        PS1+="$FGRN"
     fi
 
-    PS1+="${FBLE}${DEGIN}$NORM${BBLE}"
+    PS1+="$NORM${BBLE}"
 
     if [[ -n "$IN_NIX_SHELL" ]]; then
         PS1+="${FMAG}🐚> "
     fi
 
-    PS1+="$NORM${BBLE}"
+    PS1+="$NORM"
 
     PS1+="$FWHT$ELMB$FWHT:$FCYN[$BOLD$EDIR \w] $EARL "
-    PS1+="$NORM$FBLE$DEGOUT$NORM"
+    PS1+="$NORM$NORM"
 }
