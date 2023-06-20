@@ -1,7 +1,6 @@
 [core]
   editor = emacs
   excludesfile = ~/.gitignore_global
-  pager = delta
 [user]
   name = Brunno dos Santos
   email = brunno@brunno.me
@@ -53,9 +52,6 @@
   user = squiter
 [rerere]
   enabled = true
-
-[interactive]
-    diffFilter = delta --color-only
 
 [merge]
     conflictstyle = diff3
