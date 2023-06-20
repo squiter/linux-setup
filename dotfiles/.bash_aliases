@@ -32,17 +32,6 @@ alias lpass-get-id="lpass ls | peco | sed -e 's/.*\[id\:\ \(.*\)\]/\1/'"
 
 alias who-created-this-branch='git for-each-ref --format="%(committerdate) %09 %(authorname) %09 %(refname)" | sort -k5n -k2M -k3n -k4n | grep'
 
-# this alias created (every time) a new alias file to be used in emacs shell
-alias | sed -E "s/^alias ([^=]+)='(.*)'$/alias \1 \2 \$*/g; s/'\\\''/'/g;" >~/.emacs.d/eshell/alias
-
-# pbcopy and pbpast using xclip
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
-alias copy='xclip -selection clipboard'
-alias paste='xclip -selection clipboard -o'
-
-alias full-upgrade="sudo apt-get update && sudo apt-get -u upgrade && sudo apt autoremove && brew upgrade && snap changes"
-
 alias mledger="ledger -f ~/Dropbox/ledger/ledger.data"
 
 alias bitcoin_today="curl https://api.coindesk.com/v1/bpi/currentprice/BRL.json | jsonValue rate_float 2"
@@ -56,11 +45,7 @@ alias put_clock="while sleep 1;do tput sc;tput cup 0 $(($(tput cols)-29));date;t
 
 alias jet="clj -Sdeps '{:deps {borkdude/jet {:mvn/version \"0.0.12\"}}}' -m jet.main"
 
-alias open="xdg-open"
-
 alias n='navi --best-match --query '
 alias np='navi --print --best-match --query '
 
 alias ls='lsd'
-
-alias use='nix-shell -p '
